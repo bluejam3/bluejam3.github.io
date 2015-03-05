@@ -1,0 +1,10 @@
+= とりあえず書いてみる
+
+:published_at:  2015-03-05
+:hp-tags: HubPress, Blog, Open Source,
+
+=== 書くのに集中できる。
+---
+備忘録的に活用しようと思います。
+
+
