@@ -22,9 +22,7 @@ $ pip install cdk
 ----
 $ sudo easy_install cdk
 ----
-
 ---
-
 *サンプルデッキをデッキを生成する*
 ----
 $ cdk --generate=sample.asc
