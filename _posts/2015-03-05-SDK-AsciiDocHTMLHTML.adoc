@@ -1,12 +1,11 @@
 = SDK AsciiDocをHTMLをHTMLスライドに変換
 
 :published_at:  2015-03-05
-:hp-tags: HubPress, Blog, Open Source,
+:hp-tags: CDK, スライド, Open Source,Twitter,
 ---
 ==== Twitter製のAsciiDoc記法で作るHTMLスライドツール。
 ---
 *CDKの使い方*
-
 ===================================
 
 *CDKのインストール方法１*
