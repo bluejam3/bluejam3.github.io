@@ -1,3 +1,15 @@
-= DEMO
+= hyhyhyを使ってみる。
 
-テストしてみる。
+---
+===== MarkdownをベースにHTMLのスライドが 作成できるソフトウェア
+
+---
+
+*hyhyhyの使い方*
+
+1.インストールはRubygems
+----
+$ gem install hyhyhy
+----
+
+
