@@ -3,7 +3,7 @@
 
 出典元 : http://www.webli.us/cheatsheet/doku.php
 
-== Themes and Style Sheets
+===  Themes and Style Sheets
 
 
 ##### スタイルシートを取得
