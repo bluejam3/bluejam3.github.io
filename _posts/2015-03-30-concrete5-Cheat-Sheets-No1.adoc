@@ -1,6 +1,8 @@
 # concrete5 Cheat Sheets No.1
 :hp-tags: concrete5 ,cheat
 
+出典元 : http://www.webli.us/cheatsheet/doku.php
+
 ## Themes and Style Sheets
 
 ##### スタイルシートを取得
