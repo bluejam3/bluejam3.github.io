@@ -11,13 +11,13 @@
 
 ##### Get Style Sheet 
 
-```
+----
 $this->getStyleSheet();
 
 ヘッダ内のロードスタイルシート
  
 <?php echo $this->getStyleSheet('main.css')?>
-```
+----
 
 
 
@@ -25,7 +25,7 @@ $this->getStyleSheet();
 
 ##### Get Theme Path]
 
-```
+----
 $this->getThemePath();
  
 テーマイメージディレクトリからイメージをロードするために使用する。
@@ -38,13 +38,13 @@ $this->getThemePath();
   $v = View::getInstance();
   $v->getThemePath();
 ?> 
-```
+----
 
 ##### テーマパスの設定
 
 ##### Set Theme Path
 
-```
+----
 ブロック内のテーマパスを使用
  
 <?php
@@ -55,7 +55,7 @@ $this->getThemePath();
 テーマのイメージデェレクトリーから画像を表示するには
  
   <img src="<?php echo $themePath ?>/images/photo.png">
-```
+----
 
 
 ### Working With Blocks
