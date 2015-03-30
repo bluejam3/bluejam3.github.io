@@ -348,7 +348,7 @@ use FileList;
 ----
 
 == Working With Page Lists
-==== * ページリストの開始*
+==== *ページリストの開始*
 ===== Initiating a Page List
 [source,perl]
 ----
