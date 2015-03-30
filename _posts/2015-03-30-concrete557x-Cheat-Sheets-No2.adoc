@@ -575,7 +575,7 @@ Using Date Helper to format ($mask=) display of date and time.
 ----
 
 
-==== * MM / dd / yy形式での表示ページ属性」END_DATE」*
+==== *MM / dd / yy形式での表示ページ属性」END_DATE」*
 ===== Display Page Attribute "end_date" In mm/dd/yy Format
 [source,perl]
 ----
