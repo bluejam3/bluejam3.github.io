@@ -1,12 +1,13 @@
-# concrete5 Cheat Sheets No.2
+# concrete5[5.7.x] Cheat Sheets No.2
 :hp-tags: concrete5,Cheat Sheets,日本語訳
 
-### Working With Users
+出典元 : http://www.webli.us/cheatsheet/doku.php
 
-##### プログラムユーザ属性を追加 
-##### Add a User Attribute Programmatically
-
-```
+== Working With Users
+==== *プログラムユーザ属性を追加*
+==== Add a User Attribute Programmatically
+[source,perl]
+----
 <?php
   Loader::model('user_attributes');
   //add boolean type user attribute 
@@ -17,11 +18,13 @@
     UserAttributeKey::add($boolt, array('akHandle' => 'atribute_handle', 'akName' => t('Attribute name'), 'akIsSearchable' => false, 'uakProfileEdit' => false, 'uakRegisterEdit' => false, 'akCheckedByDefault' => false));
 }
 ?>
-```
+----
 
-##### プログラムユーザー属性を削除  
-##### Delete User Attribute Programmatically
-```
+
+==== *プログラムユーザー属性を削除*  
+==== Delete User Attribute Programmatically
+[source,perl]
+----
 <?php
   Loader::model('user_attributes');
   $attributeHandle = UserAttributeKey::getByHandle('atribute_handle');
@@ -29,12 +32,13 @@
      $attributeHandle->delete();
 }
 ?>
-```
+----
 
-##### 個人記録されたInのユーザー属性を取得する
-##### Get a User Attribute for Person Logged In
+==== *個人記録されたInのユーザー属性を取得する*
+[source,perl]
+==== Get a User Attribute for Person Logged In
 
-```
+----
 <?php
   $u = new User();
   if($u->isLoggedIn()) {
@@ -42,35 +46,35 @@
     echo $ui->getAttribute('attribute_name');	
 }
 ?>
-```
+----
 
-##### 個人記録された中のユーザー属性を設定
-##### Set a User Attribute for Person Logged In
-
-```
+==== *個人記録された中のユーザー属性を設定*
+==== Set a User Attribute for Person Logged In
+[source,perl]
+----
 <?php
   $u = new user();
   $ui = UserInfo::getByID($u->getUserID());
   $ui->setAttribute('attributenName', 'value');
 ?>
-```
+----
 
-##### ユーザー属性を削除
-#####  Delete a User Attribute
-
-```
+==== *ユーザー属性を削除*
+===== Delete a User Attribute
+[source,perl]
+----
 <?php
   Loader::model('user_attributes');
   $attributeKey = UserAttributeKey::getByHandle('user_attribute_name');
   if( is_object($attributeKey) )
     $attributeKey->delete();
 ?>
-```
+----
 
-##### 表示/ユーザ選択]属性からオプションを取得
-#####  Display/Get Options From a User Select Attribute
-
-```
+==== *表示/ユーザ選択]属性からオプションを取得*
+===== Display/Get Options From a User Select Attribute
+[source,perl]
+----
 <?php
   Loader::model('attribute/type');
   Loader::model('attribute/categories/user');
@@ -84,24 +88,24 @@
     echo $v->value;
   }
 ?>
-```
+----
 
-##### グループにユーザーを追加 
-#####  Add a User To a Group
-
-```
+==== *グループにユーザーを追加*
+===== Add a User To a Group
+[source,perl]
+----
 <?php
   $u = new User();
   $u->getByUserID($uID);
   $groupName = Group::getByName('Name_Of_Your_Group');
   $u->enterGroup($groupName);
 ?>
-```
+----
 
-##### すべてのユーザーグループ名を取得
-#####  Get All User Group Names
-
-```
+==== *すべてのユーザーグループ名を取得*
+===== Get All User Group Names
+[source,perl]
+----
 <?php
 Loader::model('search/group');
  
@@ -112,22 +116,22 @@ foreach ($gResults as $g) {
   echo  $g['gName'];
 }
 ?>	
-```
+----
 
-##### ユーザー名を表示
-#####  Display a Users Name
-
-```
+==== *ユーザー名を表示*
+===== Display a Users Name
+[source,perl]
+----
 <?php
   $u = new User();
   echo $u->getUserName();
 ?>
-```
+----
 
-##### ログインした場合の背景位置を調整
-#####  If Logged in Adjust Background Position
-
-```
+==== *ログインした場合の背景位置を調整*
+===== If Logged in Adjust Background Position
+[source,perl]
+----
  <?php 
       $u = new User();
      
@@ -136,24 +140,24 @@ foreach ($gResults as $g) {
         body { background-position: 0px 49px; }
         </style>
     <?php } ?>
-```
+----
 
-##### ユーザーが、ログインしている場合
-#####  If a User is Logged In Do Something
-
-```
+==== *ユーザーが、ログインしている場合*
+===== If a User is Logged In Do Something
+[source,perl]
+----
 <?php
   $u = new User();
   if($u->isLoggedIn()) {
     echo 'Hello '.$u->getUserName();
   }
 ?>
-```
+----
 
-##### スーパーユーザ及び管理者グループがログインしている場合
-#####  If Logged in User is Admin Do Something
-
-```
+==== *スーパーユーザ及び管理者グループがログインしている場合*
+===== If Logged in User is Admin Do Something
+[source,perl]
+----
 <?php
   $u = new user();
   $g = Group::getByName('Administrators');
@@ -162,26 +166,26 @@ foreach ($gResults as $g) {
     //do something here
   }
 ?>
-```
+----
  
-### Working With Files and Sets
-##### ファイルへのパスを取得する
-##### Get Path to File
-
-```
+== Working With Files and Sets
+==== *ファイルへのパスを取得する*
+===== Get Path to File
+[source,perl]
+----
 <?php
   $f = File::getByID(FILE_ID);
   $fv = $f->getApprovedVersion();
   $path = $fv->getRelativePath();
 ?>
 ]
-```
+----
 
 
-##### セット名ファイルゲット
-#####  Get File Set Names
-
-```
+==== *セット名ファイルゲット*
+===== Get File Set Names
+[source,perl]
+----
 (in view.php)
 <?php
   $fileSets = FileSet::getMySets();
@@ -206,31 +210,31 @@ use FileList;
    $filesets('id' => $fs->getFileSetID(), 'name' => $fs->getFileSetName());
  }
 ?>
-```
+----
 
-##### ファイルセットを追加
-#####  Add a File Set
-
-```
+==== *ファイルセットを追加*
+===== Add a File Set
+[source,perl]
+----
 <?php  
   $fs = FileSet::createAndGetSet('FILESET_NAME', FileSet::TYPE_PUBLIC, $uID = false);
 ?>
-```
+----
 
-#####  ファイルの属性値を取得
-##### Get File Attribute Value
-
-```
+==== *ファイルの属性値を取得*
+===== Get File Attribute Value
+[source,perl]
+----
 <?php
   $f = File::getByID(FILE ID NUMBER);
   echo $f->getAttribute('Attrubute_name');
 ?>
-```
+----
 
-##### ファイル属性を追加
-#####  Add a File Attribute
-
-```
+==== *ファイル属性を追加*
+===== Add a File Attribute
+[source,perl]
+----
 <?php
   // add file attribute programmatically (text)
   Loader::model('file_attributes');
@@ -256,12 +260,12 @@ use FileList;
    }
 }
 ?>
-```
+----
 
-##### 表示/ファイルセットからファイル情報を見る
-#####  Display / Get File Info from File Sets
-
-```
+==== *表示/ファイルセットからファイル情報を見る*
+===== Display / Get File Info from File Sets
+[source,perl]
+----
 (in view.php)
 <?php
   $fs = FileSet::getByName('Your File Set');
@@ -293,24 +297,24 @@ use FileList;
   $fl->sortBy('fsDisplayOrder', 'asc');
   $files = $fl->get();
 ?>  
-```
+----
 
-##### ファイルを追加
-##### Add a File
-
-```
+==== *ファイルを追加*
+===== Add a File
+[source,perl]
+----
 <?php
     Loader::library("file/importer");
     $fi = new FileImporter();
     $newFile = $fi->import($pathToFile, $nameOfFile, $fileObject);
   }
 ?>
-```
+----
 
-##### フォームからファイルの追加
-#####  Add a File From a Form
-
-```
+==== *フォームからファイルの追加*
+=====  Add a File From a Form
+[source,perl]
+----
 <?php
   // function in controller
   function action_file_upload()	{ 
@@ -320,12 +324,12 @@ use FileList;
     $_FILES['fileName']['name']);
   }
 ?>
-```
+----
 
-##### ファイルセットにファイルを追加
-##### Add a File to a file Set
-
-```
+==== *ファイルセットにファイルを追加*
+===== Add a File to a file Set
+[source,perl]
+----
 <?php
   // when uploading with a form
   function action_file_upload()	{
@@ -341,13 +345,13 @@ use FileList;
     $fsf = $fs->addFileToSet($newFile);	
   }
 ?>
-```
+----
 
-### Working With Page Lists
-##### ページリストの開始
-#####  Initiating a Page List
-
-```
+== Working With Page Lists
+==== * ページリストの開始*
+===== Initiating a Page List
+[source,perl]
+----
 (in view.php)
  
 <?php
@@ -374,12 +378,12 @@ use Concrete\Core\Page\PageList;
    // Get the page List Results 
   $pages = $pl->get() Get all pages that match filter/sort criteria.
 ?>
-```
+----
 
-##### ページリストフィルタ/並べ替え
-#####  Page List Filters / Sorting
-
-```
+==== * ページリストフィルタ/並べ替え*
+===== Page List Filters / Sorting
+[source,perl]
+----
 <?php
     // Available Filters
     $pl->ignorePermissions(); // Don't check the permissions of the logged-in user.
@@ -412,12 +416,13 @@ use Concrete\Core\Page\PageList;
     $pl->sortByNameDescending(); // Order by name descending
     $pl->sortBy('ATTRIBUTE_HANDLE'); // Order by a page attribute
   ?>
-```
+----
 
-##### ページ一覧はコレクション型ハンドルに基づくゲット
-##### Get Page List based on Collection Type Handle
 
-```
+==== * ページ一覧はコレクション型ハンドルに基づくゲット*
+===== Get Page List based on Collection Type Handle
+[source,perl]
+----
 <?php
   $pl = new PageList();
   $pl->filterByCollectionTypeHandle('COLLECTION_HANDLE');
@@ -431,12 +436,12 @@ use Concrete\Core\Page\PageList;
     echo $page->getCollectionDescription();
   }
 ?>
-```
+----
 
-##### テーマに埋め込むページリストブロック
-##### Embed Page List Block in Theme
-
-```
+==== *テーマに埋め込むページリストブロック*
+===== Embed Page List Block in Theme
+[source,perl]
+----
 <?php
   $bt = BlockType::getByHandle('page_list');
  
@@ -457,23 +462,23 @@ use Concrete\Core\Page\PageList;
   // Render the block
   $bt->render('view'); // for template 'templates/template_name'
 ?>
-```
+----
 
-##### 再ソートページリストブロック$ページアレイ
-##### Re-Sort Page List Block $pages Array
-
-```
+==== *再ソートページリストブロック$ページアレイ*
+===== Re-Sort Page List Block $pages Array
+[source,perl]
+----
 <?php
   // Re-sort in view.php by an end date page attribute
   usort($pages, create_function('$a, $b', 'return $a->getAttribute("end_date") > $b->getAttribute("end_date");'));
 ?>
-```
+----
 
-### Controllers
-##### 単一ページコントローラ
-#####  Single Page Controllers
-
-```
+== Controllers
+==== *単一ページコントローラ*
+===== Single Page Controllers
+[source,perl]
+----
 Create single page file: applications/single_pages/test_page.php
  
 Create a controller file: applications/controllers/test_page.php 
@@ -496,13 +501,13 @@ class TestPage extends PageController
  
 }
 ?>
-```
+----
 
-### Database
-##### データベースからデータをフェッチ
-##### Fetch Data From Database
-
-```
+== Database
+==== *データベースからデータをフェッチ*
+===== Fetch Data From Database
+[source,perl]
+----
 <?php
   $db = Loader::db();
  
@@ -513,12 +518,13 @@ class TestPage extends PageController
  
   echo $row[column name];
 ?>
-``` 
+---- 
 
-##### アップデートデータベース
-##### Update Database
 
-``` 
+==== *アップデートデータベース*
+===== Update Database
+[source,perl]
+---- 
 <?php 
   $db = Loader::db();
  
@@ -526,25 +532,27 @@ class TestPage extends PageController
   $vals = array('[value]');
   $update = $db->Execute($sql, $vals);
 ?>
-```
+----
 
-### Helpers
-##### 日付/時刻ヘルパー 
-##### Date/Time Helper
----
-##### ロード日付/時刻ヘルパー
-#####  Load Date/Time Helper
+== Helpers
+==== *日付/時刻ヘルパー* 
+===== Date/Time Helper
 
-``` 
+==== *ロード日付/時刻ヘルパー*
+===== Load Date/Time Helper
+[source,perl]
+---- 
 <?php
 $date = Core::make('helper/date');
 ?>
-```
+----
 
-##### ページ日付/時刻属性（END_DATE）で今日の日付を比較して、何かをする
-#####  Compare Today's Date With a Pages Date/Time Attribute (end_date) And Do Something
 
-```
+
+==== *ページ日付/時刻属性（END_DATE）で今日の日付を比較して、何かをする*
+===== Compare Today's Date With a Pages Date/Time Attribute (end_date) And Do Something
+[source,perl]
+----
 Using Date Helper to format ($mask=) display of date and time.
  
 <?php
@@ -553,30 +561,32 @@ Using Date Helper to format ($mask=) display of date and time.
     echo 'End date is greater than today';
   }
 ?>
-```
+----
 
-##### DD-MM-YYYY午後12時フォーマットでの表示日付/時刻。
-#####  Display Date/Time In dd-mm-yyyy 00:00 Format.
 
-```
+==== *DD-MM-YYYY午後12時フォーマットでの表示日付/時刻。*
+===== Display Date/Time In dd-mm-yyyy 00:00 Format.
+[source,perl]
+----
 <?php
   $date = Loader::helper("date");  echo $date->getLocalDateTime('now',$mask = 'd-m-Y G:i')
 ?>
-```
+----
 
-##### MM / dd / yy形式での表示ページ属性」END_DATE」
-#####  Display Page Attribute "end_date" In mm/dd/yy Format
 
-```
+==== * MM / dd / yy形式での表示ページ属性」END_DATE」*
+===== Display Page Attribute "end_date" In mm/dd/yy Format
+[source,perl]
+----
 <?php
   echo $date->getSystemDateTime($c->getCollectionAttributeValue('end_date'), $mask = 'm/d/y') 
 ?>
-```
+----
 
-##### 日付のページを取得最後に編集しました
-##### Get Date The Page Was Last Edited
-
-```
+==== *日付のページを取得最後に編集しました*
+===== Get Date The Page Was Last Edited
+[source,perl]
+----
 <?php
   foreach($c->getBlocks('Main') as $b) {
     $bDate[$i] = $b->getBlockDateLastModified();
@@ -587,12 +597,13 @@ Using Date Helper to format ($mask=) display of date and time.
  
   echo $date->getLocalDateTime($bDate[0],$mask = 'm-d-Y g:i:s');
 ?>
-```
+----
 
-##### ページ属性」END_DATEが現在時刻よりも大きい場合には、何かをする
-#####  If Page Attribute "end_date Is Greater Than Current Time, Do Something.
 
-```
+==== *ページ属性」END_DATEが現在時刻よりも大きい場合には、何かをする*
+===== If Page Attribute "end_date Is Greater Than Current Time, Do Something.
+[source,perl]
+----
 <?php
   if($date->getSystemDateTime($c->getCollectionAttributeValue('end_date'), $mask = 'd-m-Y G:i') > $date->getLocalDateTime('now',$mask = 'd-m-Y G:i')) {
  
@@ -600,12 +611,13 @@ Using Date Helper to format ($mask=) display of date and time.
  
   }
 ?>
-```
+----
 
-##### マスクのPHPの日付書式
-#####  PHP Date Formatting For Mask
 
-```
+==== *マスクのPHPの日付書式*
+===== PHP Date Formatting For Mask
+[source,perl]
+----
 a 'am' or 'pm'
 A 'AM' or 'PM'
 B Swatch Internet time
@@ -635,28 +647,27 @@ Y year, 4 digits; i.e. '1999'
 y year, 2 digits; i.e. '99'
 z day of the year; i.e. '0' to '365'
 Z timezone offset in seconds (i.e. '-43200' to '43200'). The offset for timezones west of UTC is always negative, and for those east of UTC is always positive.
-```
+----
 
 
 
 
-### Image Helper
-
-##### イメージのロードヘルパー
-#####  Load Image Helper
-
+== Image Helper
+==== *イメージのロードヘルパー*
+===== Load Image Helper
+[source,perl]
  (depricated)
-
-```
+----
 <?php
   $imageHelper = Core::make('helper/image');
 ?>
-```
+----
 
-##### ページ属性からの出力サムネイル
-#####  Output Thumbnail from Page Attribute
 
-```
+==== *ページ属性からの出力サムネイル*
+===== Output Thumbnail from Page Attribute
+
+----
 If image exists in Image/File Attribute "product_image", display the image scaled to 100px.
  
 <?php
@@ -664,49 +675,48 @@ If image exists in Image/File Attribute "product_image", display the image scale
     $imageHelper->outputThumbnail($c->getAttribute('product_image'),100 ,100);
   }
 ?>
-```
+----
 
-##### 画像のヘルパーでサムネイル情報を取得
-##### Get Thumbnail Info with Image Helper
 
-```
+==== *画像のヘルパーでサムネイル情報を取得*
+===== Get Thumbnail Info with Image Helper
+[source,perl]
+----
 <?php
   $file = File::getByID(id_number);
   $img = $imageHelper->getThumbnail($file, 100, 100);
 ?> 
      
     <img src="<?php echo $img->src; ?>" width="<?php echo $img->width; ?>" height="<?php echo $img->height; ?>">
-```
+----
 
 
-### Multilingual Helper
+== Multilingual Helper
 
-##### 多言語ヘルパーのロード
-
-#####  Load Multilingual Helper
-
-```
+==== *多言語ヘルパーのロード*
+===== Load Multilingual Helper
+[source,perl]
+----
 <?php
   $lh = Loader::helper('section', 'multilingual');
 <?
-```
-##### 二つの言語コードを返します
-
-#####  Return Two Language Code
-
-```
+----
+==== *二つの言語コードを返します*
+===== Return Two Language Code
+[source,perl]
+----
 <?php
     $lh = Loader::helper('section', 'multilingual');
     echo $lh->getLanguage();
   ?>
-```
+----
 
-#### Site.php
+== Site.php
 
-##### 共通設定
-##### Common Settings
-
-```
+==== *共通設定*
+===== Common Settings
+[source,perl]
+----
 Set advanced permissions on
   define('PERMISSIONS_MODEL', 'advanced');
  
@@ -748,12 +758,13 @@ Set registration email notification address
 Set registration email notification from address
   define('EMAIL_ADDRESS_REGISTER_NOTIFICATION_FROM',
   'example@domain.com');
-```
+----
 
-##### ホワイトラベルの設定
-##### White Label Configuration
 
-```
+==== *ホワイトラベルの設定*
+===== White Label Configuration
+[source,perl]
+----
 Disable concrete5 marketplace integration.
 define('ENABLE_MARKETPLACE_SUPPORT', false); 
  
@@ -789,4 +800,4 @@ define('WHITE_LABEL_DASHBOARD_BACKGROUND_SRC', 'none');
  
 Web address for today's Image
 define('WHITE_LABEL_DASHBOARD_BACKGROUND_FEED', false); 
-```
+----
