@@ -536,6 +536,7 @@ class TestPage extends PageController
 
 == Helpers
 ==== *日付/時刻ヘルパー* 
+---
 ===== Date/Time Helper
 
 ==== *ロード日付/時刻ヘルパー*
