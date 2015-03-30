@@ -1,9 +1,10 @@
 # concrete5[5.7.x] Cheat Sheets No.2
 :hp-tags: concrete5,Cheat Sheets,日本語訳
 
-出典元 : http://www.webli.us/cheatsheet/doku.php
+TIP: 出典元 : http://www.webli.us/cheatsheet/doku.php
 
 == Working With Users
+
 ==== *プログラムユーザ属性を追加*
 ==== Add a User Attribute Programmatically
 [source,perl]
