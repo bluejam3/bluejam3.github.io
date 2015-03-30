@@ -1,0 +1,618 @@
+# concrete5 Sheets1
+
+## Themes and Style Sheets
+
+##### スタイルシートを取得
+
+##### Get Style Sheet 
+
+```
+$this->getStyleSheet();
+
+ヘッダ内のロードスタイルシート
+ 
+<?php echo $this->getStyleSheet('main.css')?>
+```
+
+
+
+##### テーマのパスを取得
+
+##### Get Theme Path]
+
+```
+$this->getThemePath();
+ 
+テーマイメージディレクトリからイメージをロードするために使用する。
+ 
+<img src="<?=$this->getThemePath()?>/images/photo.png">
+
+ OR
+ 
+<?php
+  $v = View::getInstance();
+  $v->getThemePath();
+?> 
+```
+
+##### テーマパスの設定
+
+##### Set Theme Path
+
+```
+ブロック内のテーマパスを使用
+ 
+<?php
+  $v = View::getInstance();
+  $themePath = $v->getThemePath();
+?>
+ 
+テーマのイメージデェレクトリーから画像を表示するには
+ 
+  <img src="<?php echo $themePath ?>/images/photo.png">
+```
+
+
+### Working With Blocks
+
+##### ブロックエリアを追加 
+
+##### Add a Block Area
+
+
+```
+<?php 
+    $a = new Area('AREA_NAME');
+    $a->display($c);
+?>
+```
+
+##### 絶対位置のDivを有する領域内の各ブロックをラップ
+
+##### Wrap Each Block In An Area With Divs
+
+```
+<?php 
+  $a = new Area('sidebar');
+  $a->setBlockWrapperStart('<div class="box">');
+  $a->setBlockWrapperEnd('</div>');
+  $a->display($c); 
+?>
+```
+##### 編集モード内のブロックの間にスペースを追加  
+##### Add Space Between Blocks In Edit Mode
+```
+<?php 
+  if ($c->isEditMode()) { ?>
+    <div style="min-height: 20px;"> </div>
+  <?php } ?>
+  
+```
+  
+##### ページ内のスタックのためのグローバル領域を追加 
+
+##### Add a Global Area for a Stack In a Page 
+
+```  
+<?php
+  $a = new GlobalArea('STACK_NAME'); 
+  $a->display();
+?>
+``` 
+
+
+##### ページ内のスタックを追加
+
+#####  Add a Stack In a Page
+
+
+```
+<?php
+$stack = Stack::getByName('STACK_NAME');
+$stack->display();
+?>
+```
+
+
+##### スタック名（またはハンドル）を取得 
+
+##### Get Stack Names (or Handles)
+
+```
+<?php
+  $stm = new StackList();
+  $stm->filterByGlobalAreas(); 
+  // Use filterByGlobalAreas() or filterByUserAdded()
+  $stacks = $stm->get();
+ 
+  foreach($stacks as $st) {
+    print  $st->getCollectionName();
+    //  Use $st->getCollectionName(),  $st->getCollectionHandle(), etc.
+  }
+?>
+```
+
+##### ブロックDirectory用のURLを取得 
+#####  Get URL for Block Directory
+
+
+```
+<img src="<?php echo $this->getBlockURL() ?>/images/image.png">
+```
+
+
+### Working with Pages in Blocks and Themes 
+##### ページ·タイプを追加
+#####  Add a Page Type
+
+```
+<?php
+  /* ページが存在するかどうかを確認 */
+  /* Check if page exists. */
+ 
+  Loader::model('collection_types');
+  $pageType = CollectionType::getByHandle('[page_type_handle]');
+ 
+  /* 存在しない場合は、新しいページをADDD */
+  /* Addd new page if does not exist. */
+ 
+  if(!is_object($pageType)) {
+    $data['ctHandle'] = '[page_type_handle]';
+    $data['ctName'] = t('[page_type_name]');
+    $newPage = CollectionType::add($data, $pkg);
+  }
+?>
+```
+##### ページの親ページ名を表示 
+##### Display a Page's Parent Page Name
+
+```
+<?php
+  $page=Page::getByID($c->getCollectionParentID());
+  echo $page->getCollectionName();
+?>
+```
+
+##### トップレベルの親の名前を表示
+##### Display Top Level Parent Name
+
+```
+<?php 
+  $c = Page::getCurrentPage();
+  $nh = Core::make('helper/navigation');
+  $cobj = $nh->getTrailToCollection($c);
+ 
+  $rcobj = array_reverse($cobj);
+    if(is_object($rcobj[1])) {
+      $pID  = $rcobj[1]->getCollectionID();
+      $page = Page::getByID($pID);  
+      echo $page->getCollectionName();
+    }else{
+      echo $c->getCollectionName();
+    }  
+?>
+```
+
+##### 現在のページオブジェクトを取得 
+#####  Get Current Page Object
+
+
+```
+$page = Page::getCurrentPage();
+```
+
+##### ページが追加された日付を取得/作成された
+#####  Get Date The Page Was Added/Created
+
+
+```
+<?php
+$c->getCollectionDateAdded('F j, Y')
+?>
+ 
+ディスプレイの日付のページが追加
+
+<?php echo $c->getCollectionDateAdded('F j, Y') ?>
+```
+##### 親ページのハンドルを取得して何かをする
+#####  Get Handle of Parent Page and Do Something
+
+```
+<?php
+  $page=Page::getByID($c->getCollectionParentID());
+ 
+  if ( $page->getCollectionName() == 'es' ) {
+    echo '<a href="/index.php/gallery">Galería</a>';
+  } else {
+    echo '<a href="/index.php/gallery">Gallery</a>';
+  }
+?>
+```
+
+##### ページの説明を取得します
+##### Get a Page's Description
+
+
+```
+$c->getCollectionDescription();
+ 
+表示ページ記述
+ 
+<?php echo $c->getCollectionDescription() ?>
+
+
+```
+##### ページのハンドルを取得
+##### Get a Page's Handle
+
+
+```
+$c->getCollectionHandle();
+ 
+個々のページにスタイルを追加するためのdiv要素を作成
+
+<div id="<?php echo $c->getCollectionHandle() ?> "> </div>
+ 
+ページハンドルに基づいてのdivにクラスを追加
+ 
+<div id="header" class="<?php echo $c->getCollectionHandle() ?>"> </div>
+```
+##### ページのIDを取得 
+#####  Get a Page's ID
+
+```
+$c->getCollectionID();
+
+表示ページID
+
+<?php echo $c->getCollectionID() ?>
+```
+
+##### ページの名前を取得します
+
+##### Get a Page's Name
+
+```
+$c->getCollectionName();
+
+表示ページ名
+
+<?php echo $c->getCollectionName() ?>
+```
+##### ページの親ページ·IDを取得
+
+##### Get a Page's Parent Page ID
+
+
+```
+$c->getCollectionParentID();
+
+ディスプレイの親ページのページID
+
+<?php echo $c->getCollectionParentID() ?>
+```
+
+#####  ページ所有者IDを取得 
+#####  Get a Pages Owner ID
+
+
+```
+$pageOwner = $c->getCollectionUserID()
+```
+
+
+##### 現在のページのURLを取得する
+##### Get Current Page URL
+
+```
+<?php
+$nh = Core::make('helper/navigation');
+$URL = $nh->getCollectionURL($c);
+?>
+```
+
+##### ページ·タイプの名前を取得します
+##### Get a Page Type's Name
+
+```
+$c->getCollectionTypeName();
+ 
+Set a class to a page types name.
+ 
+<?php 
+  if($c->getCollectionTypeName() == 'Full Width'){ 
+    echo 'class="full-width"';
+  }
+?>
+```
+
+##### サイト名を取得する
+##### Get Site Name
+
+```
+<?php
+echo Config::get('concrete.site');
+?>
+```
+
+##### ページプロパティで公共の日付/時刻を取得
+
+#####  Get Public Date/Time In Page Properties
+
+```
+<?php
+$dateHelper = Core::make('helper/date');
+ 
+echo $dateHelper->getSystemDateTime($c->getCollectionDatePublic(), $mask = 'l, F d, Y  g:ia')
+?>
+```
+
+##### 最後に編集日付を取得
+
+#####  Get Date Last Edited
+
+```
+<?php
+// Load Date Helper
+$date = Core::make('helper/date'); 
+ 
+// Get Blocks in Main area
+foreach($c->getBlocks('Main') as $b) {
+   $bDate[$i] = $b->getBlockDateLastModified();
+   $i ++;
+}
+ 
+// Reverse Sort Date Array
+rsort( $bDate );
+ 
+//Echo Date and Time Page last Edited
+echo $date->getLocalDateTime($bDate[0],$mask = 'm-d-Y g:i:s');
+?>
+```
+
+##### オートナビをテーマページに埋め込む
+
+##### Embed Autonav in a Theme Page
+
+```
+<?php 	
+  $bt = BlockType::getByHandle('autonav');
+  $bt->controller->displayPages = 'top'; // 'top', 'above', 'below', 'second_level', 'third_level', 'custom', 'current'
+  $bt->controller->displayPagesCID = ''; // if display pages is set ‘custom’
+  $bt->controller->orderBy = 'display_asc';  // 'chrono_desc', 'chrono_asc', 'alpha_asc', 'alpha_desc', 'display_desc','display_asc'             
+  $bt->controller->displaySubPages = 'all';  //none', 'all, 'relevant_breadcrumb', 'relevant'          
+  $bt->controller->displaySubPageLevels = 'all'; // 'enough', 'enough_plus1', 'all', 'custom'
+  $bt->controller->displaySubPageLevelsNum = ''; // if displaySubPages is set 'custom'
+  $bt->render('view'); // for template 'templates/template_name';
+?>
+```
+
+### ページ属性 Working With Page Attributes
+##### プログラムページ属性を追加
+#####  Add a Page Attribute Programmatically
+
+```
+<?php
+namespace
+use \Concrete\Core\Attribute\Type as AttributeType;
+use CollectionAttributeKey;
+ 
+// add checkbox attribute
+$att = AttributeType::getByHandle('boolean');
+$testAttribute3=CollectionAttributeKey::getByHandle('attribute_handle');
+if( !is_object($testAttribute3) ) {
+    CollectionAttributeKey::add($att, array('akHandle' => 'attribute_handle', 'akName' => t('Attribute Name'), 'akIsSearchable' => true, 'akCheckedByDefault' => true), $pkg);
+}
+?>
+```
+##### 値が属性に設定されていることをテスト 
+
+#####  Test That a Value Is Set in an Attribute
+
+```
+<?php
+  if ($c->getCollectionAttributeValue(attribute_hande)) {
+  Do Something Here;
+  }
+?>
+```
+
+##### ページ属性値を取得
+
+##### Get a Page Attribute Value
+
+```
+$c->getCollectionAttributeValue()
+ 
+ページのテキスト属性を表示する
+ 
+<?php echo $c->getCollectionAttributeValue('attribute_hande') ?>
+ 
+*いくつかのブロックでは、$cobj代用する必要があるかもしれません
+```
+
+##### ハンドルによって属性キーを取得する
+
+#####  Get an Attribute Key by Handle
+
+```
+$atKey = CollectionAttributeKey::getByHandle('handle');
+```
+##### ページ属性から画像を表示　
+
+Display An Image From Page Attribute
+
+```
+<img src="<?php echo ($c->getAttribute('attribute_handle')->getVersion()->getRelativePath());?>" width="120px" height="160px">
+```
+
+##### ページファイル/画像属性が設定されている場合、ディスプレイのダウンロードリンク　　
+
+#####  If a Page File/Image Attribute Is Set, Display Download Link
+
+```
+<?php
+  if($c->getAttribute('attribute_name')) {
+    echo '<a href="' . $c->getAttribute('attribute_handle')->getVersion()->getRelativePath() .' ">Download PDF</a>';
+  }
+?>
+```
+
+##### ファイル/イメージAtributesのファイル名を取得
+
+##### Get a File/Image Atributes File Name
+
+```
+<?php
+$c->getAttribute('attribute_handle')->getFileName() 
+?>
+```	
+
+##### すべてのページ属性を取得する
+
+#####  Get All Page Attributes
+
+```
+(in view.php)
+<?php
+$atKeys = CollectionAttributeKey::getList();
+ 
+foreach($atKeys as $ak) {
+  echo  $ak->akName . '<br/>';
+}
+?>
+ 
+(in controller.php)
+ 
+<?php
+namespace
+use View;
+ 
+$atKeys = CollectionAttributeKey::getList();
+ 
+foreach($atKeys as $ak) {
+  pageAttributes[] =  $ak->akName;
+}
+?>
+```	
+
+##### セット内のすべての属性を取得  
+
+##### Get all Attributes in a Set
+
+```
+(in view.php)
+
+$atSet = AttributeSet::getByHandle('attribute_set_handle');
+$atKeys = $atSet->getAttributeKeys();
+ 
+foreach($atKeys as $ak) {
+  echo $ak->akName;
+}
+ 
+(in controller.php)
+ 
+namespace
+use \Concrete\Core\Attribute\Set as AttributeSet;
+ 
+$atSet = AttributeSet::getByHandle('attribute_set_handle');
+$atKeys = $atSet->getAttributeKeys();
+ 
+foreach($atKeys as $ak) {
+  $setNmes[] = $ak->akName;
+}
+```
+
+##### 表示/選択属性からオプションを取得  
+
+#####  Display/Get Options From a Select Attribute
+
+```
+<?php 
+  Loader::model('attribute/type');
+  Loader::model('attribute/categories/collection');
+ 
+  $ak = CollectionAttributeKey::getByHandle('attribute_handle');
+  $sa = new SelectAttributeTypeController(AttributeType::getByHandle('select'));
+  $sa->setAttributeKey($ak);
+  $values = $sa->getOptions();
+ 
+  foreach ($values as $v) {
+    echo $v->value;
+  }	
+?>				
+```
+
+##### 表示/選択]ページ属性から複数の値を取得する  
+
+#####  Display/Get multiple Values From a Select Page Attribute
+
+```
+<?php
+Loader::model("attribute/categories/collection");
+ 
+  $selectedOptions = $c->getCollectionAttributeValue('attribute_handle');
+  if (is_object($selectedOptions)) {
+    foreach ($selectedOptions as $opt) {
+	echo $opt;
+    }
+  }
+?>	
+```
+
+##### 属性セットでselect属性を追加  
+
+##### Add select attribute with attribute set
+
+```
+<?php 
+  // add select with attribute set page attributes 
+ 
+  // Set attribute category	
+  $akCat = AttributeKeyCategory::getByHandle('collection');
+  $akCat->setAllowAttributeSets(AttributeKeyCategory::ASET_ALLOW_SINGLE);
+  $akCatSet = $akCat->addSet('attribute_set_handle', t('Attribute Set Name'),$pkg);
+ 
+  $atType = AttributeType::getByHandle('select');
+ 
+  // test for existing attribute
+  $myAttribute = CollectionAttributeKey::getByHandle('attribute_handle'); 
+ 
+  // Add attribute
+  if( !is_object($myAttribute) ) {
+ 
+    CollectionAttributeKey::add($atType, 
+    array('akHandle' => 'attribute_hande', 
+    'akName' => t('Attribute Name'), 
+    'akIsSearchable' => true, 
+    'akIsSearchableIndexed' => true,
+    'akSelectAllowMultipleValues' => false,
+    'akSelectAllowOtherValues' => false,
+    'akSelectOptionDisplayOrder' => 'alpha_asc',  // alpha_asc or popularity_desc
+    ),$pkg)->setAttributeSet($akCatSet); 
+ 
+    //Add option values
+    $myAttribute = CollectionAttributeKey::getByHandle('attribute_handle');
+    SelectAttributeTypeOption::add( $mMakerAttribute, 'Select Option One');
+    SelectAttributeTypeOption::add( $mMakerAttribute, 'Select Option Two');
+    SelectAttributeTypeOption::add( $mMakerAttribute, 'Select Option Three');
+ }
+?>		
+```
+##### ページ属性に基づいてNAVを選択 
+
+##### Select Nav Based On Page Attributes
+
+```
+(See language Switching)
+ 
+<?php
+  if ($c->getCollectionAttributeValue('spanish_menus')) {
+    $block = Block::getByName('Spanish Menus');
+    if( is_object($block) ) $block->display();
+  } else {
+    $block = Block::getByName('English Menus');
+     if( is_object($block) ) $block->display();
+   }
+?>
+```
