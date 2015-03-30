@@ -136,7 +136,7 @@ $stack->display();
 
 
 === Working with Pages in Blocks and Themes 
-==== * ページ·タイプを追加*
+==== *ページ·タイプを追加*
 ===== Add a Page Type
 [source,perl]
 ----
@@ -169,7 +169,7 @@ $stack->display();
 ----
 
 
-==== * トップレベルの親の名前を表示
+==== *トップレベルの親の名前を表示*
 ===== Display Top Level Parent Name
 [source,perl]
 ----
@@ -189,31 +189,29 @@ $stack->display();
 ?>
 ----
 
-##### 現在のページオブジェクトを取得 
-#####  Get Current Page Object
-
-
-```
+==== *現在のページオブジェクトを取得* 
+=====  Get Current Page Object
+[source,perl]
+----
 $page = Page::getCurrentPage();
-```
+----
 
-##### ページが追加された日付を取得/作成された
-#####  Get Date The Page Was Added/Created
-
-
-```
+====  *ページが追加された日付を取得/作成された*
+=====  Get Date The Page Was Added/Created
+[source,perl]
+----
 <?php
 $c->getCollectionDateAdded('F j, Y')
 ?>
- 
-ディスプレイの日付のページが追加
-
+ ディスプレイの日付のページが追加
 <?php echo $c->getCollectionDateAdded('F j, Y') ?>
-```
-##### 親ページのハンドルを取得して何かをする
-#####  Get Handle of Parent Page and Do Something
+----
 
-```
+
+==== *親ページのハンドルを取得して何かをする* 
+=====  Get Handle of Parent Page and Do Something
+[source,perl]
+----
 <?php
   $page=Page::getByID($c->getCollectionParentID());
  
@@ -223,94 +221,80 @@ $c->getCollectionDateAdded('F j, Y')
     echo '<a href="/index.php/gallery">Gallery</a>';
   }
 ?>
-```
+----
 
-##### ページの説明を取得します
-##### Get a Page's Description
-
-
-```
+==== *ページの説明を取得します*
+=====   Get a Page's Description
+[source,perl]
+----
 $c->getCollectionDescription();
- 
-表示ページ記述
- 
-<?php echo $c->getCollectionDescription() ?>
+ 表示ページ記述
+ <?php echo $c->getCollectionDescription() ?>
+----
 
 
-```
-##### ページのハンドルを取得
-##### Get a Page's Handle
-
-
-```
+==== *ページのハンドルを取得*
+=====  Get a Page's Handle
+[source,perl]
+----
 $c->getCollectionHandle();
- 
-個々のページにスタイルを追加するためのdiv要素を作成
-
+ 個々のページにスタイルを追加するためのdiv要素を作成
 <div id="<?php echo $c->getCollectionHandle() ?> "> </div>
- 
-ページハンドルに基づいてのdivにクラスを追加
- 
-<div id="header" class="<?php echo $c->getCollectionHandle() ?>"> </div>
-```
-##### ページのIDを取得 
-#####  Get a Page's ID
+ ページハンドルに基づいてのdivにクラスを追加
+ <div id="header" class="<?php echo $c->getCollectionHandle() ?>"> </div>
+----
 
-```
+
+==== *ページのIDを取得*
+===== Get a Page's ID
+[source,perl]
+----
 $c->getCollectionID();
-
 表示ページID
-
 <?php echo $c->getCollectionID() ?>
-```
+----
 
-##### ページの名前を取得します
-
-##### Get a Page's Name
-
-```
+==== *ページの名前を取得します*
+===== Get a Page's Name
+[source,perl]
+----
 $c->getCollectionName();
-
 表示ページ名
-
 <?php echo $c->getCollectionName() ?>
-```
-##### ページの親ページ·IDを取得
-
-##### Get a Page's Parent Page ID
+----
 
 
-```
+==== *ページの親ページ·IDを取得*
+===== Get a Page's Parent Page ID
+[source,perl]
+----
 $c->getCollectionParentID();
-
 ディスプレイの親ページのページID
-
 <?php echo $c->getCollectionParentID() ?>
-```
+----
 
-#####  ページ所有者IDを取得 
-#####  Get a Pages Owner ID
-
-
-```
+==== *ページ所有者IDを取得*
+===== Get a Pages Owner ID
+[source,perl]
+----
 $pageOwner = $c->getCollectionUserID()
-```
+----
 
 
-##### 現在のページのURLを取得する
-##### Get Current Page URL
-
-```
+==== *現在のページのURLを取得する*
+===== Get Current Page URL
+[source,perl]
+----
 <?php
 $nh = Core::make('helper/navigation');
 $URL = $nh->getCollectionURL($c);
 ?>
-```
+----
 
-##### ページ·タイプの名前を取得します
-##### Get a Page Type's Name
-
-```
+==== *ページ·タイプの名前を取得します*
+===== Get a Page Type's Name
+[source,perl]
+----
 $c->getCollectionTypeName();
  
 Set a class to a page types name.
@@ -320,34 +304,33 @@ Set a class to a page types name.
     echo 'class="full-width"';
   }
 ?>
-```
+----
 
-##### サイト名を取得する
-##### Get Site Name
-
-```
+==== *サイト名を取得する*
+===== Get Site Name
+[source,perl]
+----
 <?php
 echo Config::get('concrete.site');
 ?>
-```
+----
 
-##### ページプロパティで公共の日付/時刻を取得
 
-#####  Get Public Date/Time In Page Properties
-
-```
+==== *ページプロパティで公共の日付/時刻を取得*
+===== Get Public Date/Time In Page Properties
+[source,perl]
+----
 <?php
 $dateHelper = Core::make('helper/date');
- 
-echo $dateHelper->getSystemDateTime($c->getCollectionDatePublic(), $mask = 'l, F d, Y  g:ia')
+ echo $dateHelper->getSystemDateTime($c->getCollectionDatePublic(), $mask = 'l, F d, Y  g:ia')
 ?>
-```
+----
 
-##### 最後に編集日付を取得
 
-#####  Get Date Last Edited
-
-```
+==== *最後に編集日付を取得*
+===== Get Date Last Edited
+[source,perl]
+----
 <?php
 // Load Date Helper
 $date = Core::make('helper/date'); 
@@ -357,20 +340,18 @@ foreach($c->getBlocks('Main') as $b) {
    $bDate[$i] = $b->getBlockDateLastModified();
    $i ++;
 }
- 
-// Reverse Sort Date Array
+ // Reverse Sort Date Array
 rsort( $bDate );
  
 //Echo Date and Time Page last Edited
 echo $date->getLocalDateTime($bDate[0],$mask = 'm-d-Y g:i:s');
 ?>
-```
+----
 
-##### オートナビをテーマページに埋め込む
-
-##### Embed Autonav in a Theme Page
-
-```
+==== *オートナビをテーマページに埋め込む*
+=====  Embed Autonav in a Theme Page
+[source,perl]
+----
 <?php 	
   $bt = BlockType::getByHandle('autonav');
   $bt->controller->displayPages = 'top'; // 'top', 'above', 'below', 'second_level', 'third_level', 'custom', 'current'
@@ -381,13 +362,14 @@ echo $date->getLocalDateTime($bDate[0],$mask = 'm-d-Y g:i:s');
   $bt->controller->displaySubPageLevelsNum = ''; // if displaySubPages is set 'custom'
   $bt->render('view'); // for template 'templates/template_name';
 ?>
-```
+----
 
-### ページ属性 Working With Page Attributes
-##### プログラムページ属性を追加
-#####  Add a Page Attribute Programmatically
 
-```
+=== ページ属性 Working With Page Attributes
+==== *プログラムページ属性を追加*
+===== Add a Page Attribute Programmatically
+[source,perl]
+----
 <?php
 namespace
 use \Concrete\Core\Attribute\Type as AttributeType;
@@ -400,75 +382,72 @@ if( !is_object($testAttribute3) ) {
     CollectionAttributeKey::add($att, array('akHandle' => 'attribute_handle', 'akName' => t('Attribute Name'), 'akIsSearchable' => true, 'akCheckedByDefault' => true), $pkg);
 }
 ?>
-```
-##### 値が属性に設定されていることをテスト 
+----
 
-#####  Test That a Value Is Set in an Attribute
 
-```
+==== *値が属性に設定されていることをテスト* 
+===== Test That a Value Is Set in an Attribute
+[source,perl]
+----
 <?php
   if ($c->getCollectionAttributeValue(attribute_hande)) {
   Do Something Here;
   }
 ?>
-```
+----
 
-##### ページ属性値を取得
-
-##### Get a Page Attribute Value
-
-```
+==== *ページ属性値を取得* 
+===== Get a Page Attribute Value
+[source,perl]
+----
 $c->getCollectionAttributeValue()
- 
-ページのテキスト属性を表示する
- 
-<?php echo $c->getCollectionAttributeValue('attribute_hande') ?>
- 
-*いくつかのブロックでは、$cobj代用する必要があるかもしれません
-```
+ ページのテキスト属性を表示する
+ <?php echo $c->getCollectionAttributeValue('attribute_hande') ?>
+ *いくつかのブロックでは、$cobj代用する必要があるかもしれません
+----
 
-##### ハンドルによって属性キーを取得する
 
-#####  Get an Attribute Key by Handle
-
-```
+==== *ハンドルによって属性キーを取得する*
+=====  Get an Attribute Key by Handle
+[source,perl]
+----
 $atKey = CollectionAttributeKey::getByHandle('handle');
-```
-##### ページ属性から画像を表示　
+----
 
-Display An Image From Page Attribute
 
-```
+==== *ページ属性から画像を表示*　
+===== Display An Image From Page Attribute
+[source,perl]
+----
 <img src="<?php echo ($c->getAttribute('attribute_handle')->getVersion()->getRelativePath());?>" width="120px" height="160px">
-```
+----
 
-##### ページファイル/画像属性が設定されている場合、ディスプレイのダウンロードリンク　　
-
-#####  If a Page File/Image Attribute Is Set, Display Download Link
-
-```
+==== *ページファイル/画像属性が設定されている場合、ディスプレイのダウンロードリンク*　　
+===== If a Page File/Image Attribute Is Set, Display Download Link
+[source,perl]
+----
 <?php
   if($c->getAttribute('attribute_name')) {
     echo '<a href="' . $c->getAttribute('attribute_handle')->getVersion()->getRelativePath() .' ">Download PDF</a>';
   }
 ?>
-```
+----
 
-##### ファイル/イメージAtributesのファイル名を取得
 
-##### Get a File/Image Atributes File Name
-
-```
+==== *ファイル/イメージAtributesのファイル名を取得*
+===== Get a File/Image Atributes File Name
+[source,perl]
+----
 <?php
 $c->getAttribute('attribute_handle')->getFileName() 
 ?>
-```	
+----
 
-##### すべてのページ属性を取得する
 
-#####  Get All Page Attributes
-
-```
+==== *すべてのページ属性を取得する*
+===== Get All Page Attributes
+[source,perl]
+----
 (in view.php)
 <?php
 $atKeys = CollectionAttributeKey::getList();
@@ -477,26 +456,22 @@ foreach($atKeys as $ak) {
   echo  $ak->akName . '<br/>';
 }
 ?>
- 
-(in controller.php)
- 
-<?php
+ (in controller.php)
+ <?php
 namespace
 use View;
- 
-$atKeys = CollectionAttributeKey::getList();
- 
-foreach($atKeys as $ak) {
+ $atKeys = CollectionAttributeKey::getList();
+ foreach($atKeys as $ak) {
   pageAttributes[] =  $ak->akName;
 }
 ?>
-```	
+----	
 
-##### セット内のすべての属性を取得  
 
-##### Get all Attributes in a Set
-
-```
+==== *セット内のすべての属性を取得*  
+===== Get all Attributes in a Set
+[source,perl]
+----
 (in view.php)
 
 $atSet = AttributeSet::getByHandle('attribute_set_handle');
@@ -517,13 +492,13 @@ $atKeys = $atSet->getAttributeKeys();
 foreach($atKeys as $ak) {
   $setNmes[] = $ak->akName;
 }
-```
+----
 
-##### 表示/選択属性からオプションを取得  
 
-#####  Display/Get Options From a Select Attribute
-
-```
+==== *表示/選択属性からオプションを取得*  
+===== Display/Get Options From a Select Attribute
+[source,perl]
+----
 <?php 
   Loader::model('attribute/type');
   Loader::model('attribute/categories/collection');
@@ -532,18 +507,16 @@ foreach($atKeys as $ak) {
   $sa = new SelectAttributeTypeController(AttributeType::getByHandle('select'));
   $sa->setAttributeKey($ak);
   $values = $sa->getOptions();
- 
   foreach ($values as $v) {
     echo $v->value;
   }	
 ?>				
-```
+----
 
-##### 表示/選択]ページ属性から複数の値を取得する  
-
-#####  Display/Get multiple Values From a Select Page Attribute
-
-```
+==== *[表示/選択]ページ属性から複数の値を取得する*  
+===== Display/Get multiple Values From a Select Page Attribute
+[source,perl]
+----
 <?php
 Loader::model("attribute/categories/collection");
  
@@ -554,13 +527,13 @@ Loader::model("attribute/categories/collection");
     }
   }
 ?>	
-```
+----
 
-##### 属性セットでselect属性を追加  
 
-##### Add select attribute with attribute set
-
-```
+==== *属性セットでselect属性を追加* 
+===== Add select attribute with attribute set
+[source,perl]
+----
 <?php 
   // add select with attribute set page attributes 
  
@@ -594,12 +567,13 @@ Loader::model("attribute/categories/collection");
     SelectAttributeTypeOption::add( $mMakerAttribute, 'Select Option Three');
  }
 ?>		
-```
-##### ページ属性に基づいてNAVを選択 
+----
 
-##### Select Nav Based On Page Attributes
 
-```
+==== *ページ属性に基づいてNAVを選択*
+===== Select Nav Based On Page Attributes
+[source,perl]
+----
 (See language Switching)
  
 <?php
@@ -611,4 +585,4 @@ Loader::model("attribute/categories/collection");
      if( is_object($block) ) $block->display();
    }
 ?>
-```
+----
