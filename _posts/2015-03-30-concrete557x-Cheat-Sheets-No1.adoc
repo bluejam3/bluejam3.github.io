@@ -8,39 +8,31 @@
 
 
 ==== *スタイルシートを取得*
-
 ===== Get Style Sheet 
-
 [source,perl]
 ----
 $this->getStyleSheet();
-
 ヘッダ内のロードスタイルシート
- 
-<?php echo $this->getStyleSheet('main.css')?>
+ <?php echo $this->getStyleSheet('main.css')?>
 ----
 
 
 
 ==== *テーマのパスを取得*
-
-===== Get Theme Path]
-
+===== Get Theme Path
 [source,perl]
 ----
 $this->getThemePath();
- 
-テーマイメージディレクトリからイメージをロードするために使用する。
- 
-<img src="<?=$this->getThemePath()?>/images/photo.png">
-
+ テーマイメージディレクトリからイメージをロードするために使用する。
+ <img src="<?=$this->getThemePath()?>/images/photo.png">
  OR
- 
-<?php
+ <?php
   $v = View::getInstance();
   $v->getThemePath();
 ?> 
 ----
+
+
 
 ==== *テーマパスの設定*
 ===== Set Theme Path
@@ -56,72 +48,71 @@ $this->getThemePath();
 ----
 
 
-### Working With Blocks
-
-##### ブロックエリアを追加 
-
-##### Add a Block Area
-
-
-```
+== Working With Blocks
+==== *ブロックエリアを追加* 
+===== Add a Block Area
+[source,perl]
+----
 <?php 
     $a = new Area('AREA_NAME');
     $a->display($c);
 ?>
-```
+----
 
-##### 絶対位置のDivを有する領域内の各ブロックをラップ
 
-##### Wrap Each Block In An Area With Divs
 
-```
+==== *絶対位置のDivを有する領域内の各ブロックをラップ*
+=====  Wrap Each Block In An Area With Divs
+[source,perl]
+----
 <?php 
   $a = new Area('sidebar');
   $a->setBlockWrapperStart('<div class="box">');
   $a->setBlockWrapperEnd('</div>');
   $a->display($c); 
 ?>
-```
-##### 編集モード内のブロックの間にスペースを追加  
-##### Add Space Between Blocks In Edit Mode
-```
+----
+
+
+
+==== *編集モード内のブロックの間にスペースを追加* 
+=====  Add Space Between Blocks In Edit Mode
+[source,perl]
+----
 <?php 
   if ($c->isEditMode()) { ?>
     <div style="min-height: 20px;"> </div>
   <?php } ?>
-  
-```
-  
-##### ページ内のスタックのためのグローバル領域を追加 
+----
 
-##### Add a Global Area for a Stack In a Page 
 
-```  
+  
+==== *ページ内のスタックのためのグローバル領域を追加* 
+=====  Add a Global Area for a Stack In a Page 
+[source,perl]
+----
 <?php
   $a = new GlobalArea('STACK_NAME'); 
   $a->display();
 ?>
-``` 
+----
 
 
-##### ページ内のスタックを追加
-
-#####  Add a Stack In a Page
-
-
-```
+==== *ページ内のスタックを追加* 
+===== Add a Stack In a Page
+[source,perl]
+----
 <?php
 $stack = Stack::getByName('STACK_NAME');
 $stack->display();
 ?>
-```
+----
 
 
-##### スタック名（またはハンドル）を取得 
-
-##### Get Stack Names (or Handles)
-
-```
+==== *スタック名（またはハンドル）を取得*  
+===== Get Stack Names (or Handles)
+[source,perl]
+----
 <?php
   $stm = new StackList();
   $stm->filterByGlobalAreas(); 
@@ -133,26 +124,25 @@ $stack->display();
     //  Use $st->getCollectionName(),  $st->getCollectionHandle(), etc.
   }
 ?>
-```
-
-##### ブロックDirectory用のURLを取得 
-#####  Get URL for Block Directory
+----
 
 
-```
+==== *ブロックDirectory用のURLを取得*
+=====  Get URL for Block Directory
+[source,perl]
+----
 <img src="<?php echo $this->getBlockURL() ?>/images/image.png">
-```
+----
 
 
-### Working with Pages in Blocks and Themes 
-##### ページ·タイプを追加
-#####  Add a Page Type
-
-```
+=== Working with Pages in Blocks and Themes 
+==== * ページ·タイプを追加*
+===== Add a Page Type
+[source,perl]
+----
 <?php
   /* ページが存在するかどうかを確認 */
   /* Check if page exists. */
- 
   Loader::model('collection_types');
   $pageType = CollectionType::getByHandle('[page_type_handle]');
  
@@ -165,21 +155,24 @@ $stack->display();
     $newPage = CollectionType::add($data, $pkg);
   }
 ?>
-```
-##### ページの親ページ名を表示 
-##### Display a Page's Parent Page Name
+----
 
-```
+
+==== *ページの親ページ名を表示* 
+===== Display a Page's Parent Page Name
+[source,perl]
+----
 <?php
   $page=Page::getByID($c->getCollectionParentID());
   echo $page->getCollectionName();
 ?>
-```
+----
 
-##### トップレベルの親の名前を表示
-##### Display Top Level Parent Name
 
-```
+==== * トップレベルの親の名前を表示
+===== Display Top Level Parent Name
+[source,perl]
+----
 <?php 
   $c = Page::getCurrentPage();
   $nh = Core::make('helper/navigation');
@@ -194,7 +187,7 @@ $stack->display();
       echo $c->getCollectionName();
     }  
 ?>
-```
+----
 
 ##### 現在のページオブジェクトを取得 
 #####  Get Current Page Object
