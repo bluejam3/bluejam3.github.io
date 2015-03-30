@@ -3,7 +3,7 @@
 
 Working With Users
 
-> *プログラムユーザ属性を追加  *
+> *プログラムユーザ属性を追加 *  
 > Add a User Attribute Programmatically
 
 ```
