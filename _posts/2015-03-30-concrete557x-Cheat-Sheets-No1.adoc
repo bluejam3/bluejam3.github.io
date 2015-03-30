@@ -9,7 +9,7 @@
 
 ==== *スタイルシートを取得*
 
-===== * Get Style Sheet 
+===== Get Style Sheet 
 
 [source,perl]
 ----
@@ -22,10 +22,11 @@ $this->getStyleSheet();
 
 
 
-##### テーマのパスを取得
+==== *テーマのパスを取得*
 
-##### Get Theme Path]
+===== Get Theme Path]
 
+[source,perl]
 ----
 $this->getThemePath();
  
@@ -41,21 +42,17 @@ $this->getThemePath();
 ?> 
 ----
 
-##### テーマパスの設定
-
-##### Set Theme Path
-
+==== *テーマパスの設定*
+===== Set Theme Path
+[source,perl]
 ----
 ブロック内のテーマパスを使用
- 
-<?php
+ <?php
   $v = View::getInstance();
   $themePath = $v->getThemePath();
 ?>
- 
-テーマのイメージデェレクトリーから画像を表示するには
- 
-  <img src="<?php echo $themePath ?>/images/photo.png">
+ テーマのイメージデェレクトリーから画像を表示するには
+ <img src="<?php echo $themePath ?>/images/photo.png">
 ----
 
 
