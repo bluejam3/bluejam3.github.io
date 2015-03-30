@@ -7,9 +7,9 @@
 ==  Themes and Style Sheets
 
 
-==== スタイルシートを取得
+==== *スタイルシートを取得*
 
-##### Get Style Sheet 
+===== Get Style Sheet 
 
 ----
 $this->getStyleSheet();
