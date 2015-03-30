@@ -380,7 +380,7 @@ use Concrete\Core\Page\PageList;
 ?>
 ----
 
-==== * ページリストフィルタ/並べ替え*
+==== *ページリストフィルタ/並べ替え*
 ===== Page List Filters / Sorting
 [source,perl]
 ----
@@ -419,7 +419,7 @@ use Concrete\Core\Page\PageList;
 ----
 
 
-==== * ページ一覧はコレクション型ハンドルに基づくゲット*
+==== *ページ一覧はコレクション型ハンドルに基づくゲット*
 ===== Get Page List based on Collection Type Handle
 [source,perl]
 ----
