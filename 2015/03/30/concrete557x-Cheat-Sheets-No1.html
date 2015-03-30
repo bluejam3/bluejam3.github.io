@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>concrete5[5.7.x] Cheat Sheets No.1 - </title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="concrete5[5.7.x] Cheat Sheets No.1">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="concrete5[5.7.x] Cheat Sheets No.1">
+    <meta property="og:description" content="">
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link rel="stylesheet" type="text/css" href="https://bluejam3.github.io/themes/uno/assets/css/uno.css?v=1.0.0" />
+
+    <link rel="canonical" href="https://bluejam3.github.io/2015/03/30/concrete557x-Cheat-Sheets-No1.html" />
+    
+    <meta property="og:site_name" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="concrete5[5.7.x] Cheat Sheets No.1" />
+    <meta property="og:description" content="出典元 : http://www.webli.us/cheatsheet/doku.php Themes and Style Sheets スタイルシートを取得 Get Style Sheet $this-&amp;gt;getStyleSheet(); ヘッダ内のロードスタイルシート &amp;lt;?php echo $this-&amp;gt;getStyleSheet(&#x27;main.css&#x27;)?&amp;gt; テーマのパスを取得 Get Theme Path] $this-&amp;gt;getThemePath(); テーマイメージディレクトリからイメージをロードするために使用する。 &amp;lt;img src=..." />
+    <meta property="og:url" content="https://bluejam3.github.io/2015/03/30/concrete557x-Cheat-Sheets-No1.html" />
+    <meta property="article:published_time" content="2015-03-29T15:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-03-30T09:35:25.197Z" />
+    <meta property="article:tag" content="concrete5" />
+    <meta property="article:tag" content="cheat" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="concrete5[5.7.x] Cheat Sheets No.1" />
+    <meta name="twitter:description" content="出典元 : http://www.webli.us/cheatsheet/doku.php Themes and Style Sheets スタイルシートを取得 Get Style Sheet $this-&amp;gt;getStyleSheet(); ヘッダ内のロードスタイルシート &amp;lt;?php echo $this-&amp;gt;getStyleSheet(&#x27;main.css&#x27;)?&amp;gt; テーマのパスを取得 Get Theme Path] $this-&amp;gt;getThemePath(); テーマイメージディレクトリからイメージをロードするために使用する。 &amp;lt;img src=..." />
+    <meta name="twitter:url" content="https://bluejam3.github.io/2015/03/30/concrete557x-Cheat-Sheets-No1.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "",
+    "author": {
+        "@type": "Person",
+        "name": "bluejam",
+        "image": "https://avatars.githubusercontent.com/u/9050733?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": ""
+    },
+    "headline": "concrete5[5.7.x] Cheat Sheets No.1",
+    "url": "https://bluejam3.github.io/2015/03/30/concrete557x-Cheat-Sheets-No1.html",
+    "datePublished": "2015-03-29T15:00:00.000Z",
+    "dateModified": "2015-03-30T09:35:25.197Z",
+    "keywords": "concrete5 , cheat",
+    "description": "出典元 : http://www.webli.us/cheatsheet/doku.php Themes and Style Sheets スタイルシートを取得 Get Style Sheet $this-&amp;gt;getStyleSheet(); ヘッダ内のロードスタイルシート &amp;lt;?php echo $this-&amp;gt;getStyleSheet(&#x27;main.css&#x27;)?&amp;gt; テーマのパスを取得 Get Theme Path] $this-&amp;gt;getThemePath(); テーマイメージディレクトリからイメージをロードするために使用する。 &amp;lt;img src=..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="" href="https://bluejam3.github.io/rss" />
+
+</head>
+<body class="post-template tag-undefined tag-undefined no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    <header class="panel-cover panel-cover--collapsed " >
+      <div class="panel-main">
+    
+        <div class="panel-main__inner panel-inverted">
+        <div class="panel-main__content">
+    
+            <h1 class="panel-cover__title panel-title"><a href="https://bluejam3.github.io" title="link to homepage for "></a></h1>
+            <hr class="panel-cover__divider" />
+            <p class="panel-cover__description"></p>
+            <hr class="panel-cover__divider panel-cover__divider--secondary" />
+    
+            <div class="navigation-wrapper">
+    
+              <nav class="cover-navigation cover-navigation--primary">
+                <ul class="navigation">
+                  <li class="navigation__item"><a href="https://bluejam3.github.io/#blog" title="link to  blog" class="blog-button">Blog</a></li>
+                </ul>
+              </nav>
+    
+              
+              
+              <nav class="cover-navigation navigation--social">
+                <ul class="navigation">
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+                </ul>
+              </nav>
+              
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    
+        <div class="panel-cover--overlay"></div>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            
+
+  <article class="post-container post-container--single">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <time datetime="30 Mar 2015" class="post-meta__date date">30 Mar 2015</time> &#8226; <span class="post-meta__tags tags">on <a href="https://bluejam3.github.io/tag/concrete5 ">concrete5 </a>, <a href="https://bluejam3.github.io/tag/cheat">cheat</a></span>
+        <span class="post-meta__author author"><img src="https://avatars.githubusercontent.com/u/9050733?v=3" alt="profile image for bluejam" class="avatar post-meta__avatar" /> by bluejam</span>
+      </div>
+      <h1 class="post-title">concrete5[5.7.x] Cheat Sheets No.1</h1>
+    </header>
+
+    <section class="post tag-undefined tag-undefined">
+      <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>出典元 : <a href="http://www.webli.us/cheatsheet/doku.php" class="bare">http://www.webli.us/cheatsheet/doku.php</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_themes_and_style_sheets">Themes and Style Sheets</h2>
+<div class="sectionbody">
+<hr>
+<div class="sect4">
+<h5 id="__">スタイルシートを取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_style_sheet">Get Style Sheet</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$this-&gt;getStyleSheet();
+
+ヘッダ内のロードスタイルシート
+
+&lt;?php echo $this-&gt;getStyleSheet('main.css')?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___2">テーマのパスを取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_theme_path">Get Theme Path]</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$this-&gt;getThemePath();
+
+テーマイメージディレクトリからイメージをロードするために使用する。
+
+&lt;img src="&lt;?=$this-&gt;getThemePath()?&gt;/images/photo.png"&gt;
+
+ OR
+
+&lt;?php
+  $v = View::getInstance();
+  $v-&gt;getThemePath();
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___3">テーマパスの設定</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_set_theme_path">Set Theme Path</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ブロック内のテーマパスを使用
+
+&lt;?php
+  $v = View::getInstance();
+  $themePath = $v-&gt;getThemePath();
+?&gt;
+
+テーマのイメージデェレクトリーから画像を表示するには
+
+  &lt;img src="&lt;?php echo $themePath ?&gt;/images/photo.png"&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_working_with_blocks">Working With Blocks</h3>
+<div class="sect4">
+<h5 id="___4">ブロックエリアを追加</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_add_a_block_area">Add a Block Area</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+    $a = new Area('AREA_NAME');
+    $a-&gt;display($c);
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="__div">絶対位置のDivを有する領域内の各ブロックをラップ</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_wrap_each_block_in_an_area_with_divs">Wrap Each Block In An Area With Divs</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $a = new Area('sidebar');
+  $a-&gt;setBlockWrapperStart('&lt;div class="box"&gt;');
+  $a-&gt;setBlockWrapperEnd('&lt;/div&gt;');
+  $a-&gt;display($c);
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___5">編集モード内のブロックの間にスペースを追加</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_add_space_between_blocks_in_edit_mode">Add Space Between Blocks In Edit Mode</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  if ($c-&gt;isEditMode()) { ?&gt;
+    &lt;div style="min-height: 20px;"&gt; &lt;/div&gt;
+  &lt;?php } ?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___6">ページ内のスタックのためのグローバル領域を追加</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_add_a_global_area_for_a_stack_in_a_page">Add a Global Area for a Stack In a Page</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $a = new GlobalArea('STACK_NAME');
+  $a-&gt;display();
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___7">ページ内のスタックを追加</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_add_a_stack_in_a_page">Add a Stack In a Page</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+$stack = Stack::getByName('STACK_NAME');
+$stack-&gt;display();
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___8">スタック名（またはハンドル）を取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_stack_names_or_handles">Get Stack Names (or Handles)</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $stm = new StackList();
+  $stm-&gt;filterByGlobalAreas();
+  // Use filterByGlobalAreas() or filterByUserAdded()
+  $stacks = $stm-&gt;get();
+
+  foreach($stacks as $st) {
+    print  $st-&gt;getCollectionName();
+    //  Use $st-&gt;getCollectionName(),  $st-&gt;getCollectionHandle(), etc.
+  }
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="__directory_url">ブロックDirectory用のURLを取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_url_for_block_directory">Get URL for Block Directory</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;img src="&lt;?php echo $this-&gt;getBlockURL() ?&gt;/images/image.png"&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_working_with_pages_in_blocks_and_themes">Working with Pages in Blocks and Themes</h3>
+<div class="sect4">
+<h5 id="___9">ページ·タイプを追加</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_add_a_page_type">Add a Page Type</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  /* ページが存在するかどうかを確認 */
+  /* Check if page exists. */
+
+  Loader::model('collection_types');
+  $pageType = CollectionType::getByHandle('[page_type_handle]');
+
+  /* 存在しない場合は、新しいページをADDD */
+  /* Addd new page if does not exist. */
+
+  if(!is_object($pageType)) {
+    $data['ctHandle'] = '[page_type_handle]';
+    $data['ctName'] = t('[page_type_name]');
+    $newPage = CollectionType::add($data, $pkg);
+  }
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___10">ページの親ページ名を表示</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_display_a_page_s_parent_page_name">Display a Page&#8217;s Parent Page Name</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $page=Page::getByID($c-&gt;getCollectionParentID());
+  echo $page-&gt;getCollectionName();
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___11">トップレベルの親の名前を表示</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_display_top_level_parent_name">Display Top Level Parent Name</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $c = Page::getCurrentPage();
+  $nh = Core::make('helper/navigation');
+  $cobj = $nh-&gt;getTrailToCollection($c);
+
+  $rcobj = array_reverse($cobj);
+    if(is_object($rcobj[1])) {
+      $pID  = $rcobj[1]-&gt;getCollectionID();
+      $page = Page::getByID($pID);
+      echo $page-&gt;getCollectionName();
+    }else{
+      echo $c-&gt;getCollectionName();
+    }
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___12">現在のページオブジェクトを取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_current_page_object">Get Current Page Object</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$page = Page::getCurrentPage();</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___13">ページが追加された日付を取得/作成された</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_date_the_page_was_added_created">Get Date The Page Was Added/Created</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+$c-&gt;getCollectionDateAdded('F j, Y')
+?&gt;
+
+ディスプレイの日付のページが追加
+
+&lt;?php echo $c-&gt;getCollectionDateAdded('F j, Y') ?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___14">親ページのハンドルを取得して何かをする</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_handle_of_parent_page_and_do_something">Get Handle of Parent Page and Do Something</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $page=Page::getByID($c-&gt;getCollectionParentID());
+
+  if ( $page-&gt;getCollectionName() == 'es' ) {
+    echo '&lt;a href="/index.php/gallery"&gt;Galería&lt;/a&gt;';
+  } else {
+    echo '&lt;a href="/index.php/gallery"&gt;Gallery&lt;/a&gt;';
+  }
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___15">ページの説明を取得します</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_a_page_s_description">Get a Page&#8217;s Description</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$c-&gt;getCollectionDescription();
+
+表示ページ記述
+
+&lt;?php echo $c-&gt;getCollectionDescription() ?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___16">ページのハンドルを取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_a_page_s_handle">Get a Page&#8217;s Handle</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$c-&gt;getCollectionHandle();
+
+個々のページにスタイルを追加するためのdiv要素を作成
+
+&lt;div id="&lt;?php echo $c-&gt;getCollectionHandle() ?&gt; "&gt; &lt;/div&gt;
+
+ページハンドルに基づいてのdivにクラスを追加
+
+&lt;div id="header" class="&lt;?php echo $c-&gt;getCollectionHandle() ?&gt;"&gt; &lt;/div&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="__id">ページのIDを取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_a_page_s_id">Get a Page&#8217;s ID</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$c-&gt;getCollectionID();
+
+表示ページID
+
+&lt;?php echo $c-&gt;getCollectionID() ?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___17">ページの名前を取得します</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_a_page_s_name">Get a Page&#8217;s Name</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$c-&gt;getCollectionName();
+
+表示ページ名
+
+&lt;?php echo $c-&gt;getCollectionName() ?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="__id_2">ページの親ページ·IDを取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_a_page_s_parent_page_id">Get a Page&#8217;s Parent Page ID</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$c-&gt;getCollectionParentID();
+
+ディスプレイの親ページのページID
+
+&lt;?php echo $c-&gt;getCollectionParentID() ?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="__id_3">ページ所有者IDを取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_a_pages_owner_id">Get a Pages Owner ID</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$pageOwner = $c-&gt;getCollectionUserID()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="__url">現在のページのURLを取得する</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_current_page_url">Get Current Page URL</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+$nh = Core::make('helper/navigation');
+$URL = $nh-&gt;getCollectionURL($c);
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___18">ページ·タイプの名前を取得します</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_a_page_type_s_name">Get a Page Type&#8217;s Name</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$c-&gt;getCollectionTypeName();
+
+Set a class to a page types name.
+
+&lt;?php
+  if($c-&gt;getCollectionTypeName() == 'Full Width'){
+    echo 'class="full-width"';
+  }
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___19">サイト名を取得する</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_site_name">Get Site Name</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+echo Config::get('concrete.site');
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___20">ページプロパティで公共の日付/時刻を取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_public_date_time_in_page_properties">Get Public Date/Time In Page Properties</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+$dateHelper = Core::make('helper/date');
+
+echo $dateHelper-&gt;getSystemDateTime($c-&gt;getCollectionDatePublic(), $mask = 'l, F d, Y  g:ia')
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___21">最後に編集日付を取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_date_last_edited">Get Date Last Edited</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+// Load Date Helper
+$date = Core::make('helper/date');
+
+// Get Blocks in Main area
+foreach($c-&gt;getBlocks('Main') as $b) {
+   $bDate[$i] = $b-&gt;getBlockDateLastModified();
+   $i ++;
+}
+
+// Reverse Sort Date Array
+rsort( $bDate );
+
+//Echo Date and Time Page last Edited
+echo $date-&gt;getLocalDateTime($bDate[0],$mask = 'm-d-Y g:i:s');
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___22">オートナビをテーマページに埋め込む</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_embed_autonav_in_a_theme_page">Embed Autonav in a Theme Page</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $bt = BlockType::getByHandle('autonav');
+  $bt-&gt;controller-&gt;displayPages = 'top'; // 'top', 'above', 'below', 'second_level', 'third_level', 'custom', 'current'
+  $bt-&gt;controller-&gt;displayPagesCID = ''; // if display pages is set ‘custom’
+  $bt-&gt;controller-&gt;orderBy = 'display_asc';  // 'chrono_desc', 'chrono_asc', 'alpha_asc', 'alpha_desc', 'display_desc','display_asc'
+  $bt-&gt;controller-&gt;displaySubPages = 'all';  //none', 'all, 'relevant_breadcrumb', 'relevant'
+  $bt-&gt;controller-&gt;displaySubPageLevels = 'all'; // 'enough', 'enough_plus1', 'all', 'custom'
+  $bt-&gt;controller-&gt;displaySubPageLevelsNum = ''; // if displaySubPages is set 'custom'
+  $bt-&gt;render('view'); // for template 'templates/template_name';
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__working_with_page_attributes">ページ属性 Working With Page Attributes</h3>
+<div class="sect4">
+<h5 id="___23">プログラムページ属性を追加</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_add_a_page_attribute_programmatically">Add a Page Attribute Programmatically</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+namespace
+use \Concrete\Core\Attribute\Type as AttributeType;
+use CollectionAttributeKey;
+
+// add checkbox attribute
+$att = AttributeType::getByHandle('boolean');
+$testAttribute3=CollectionAttributeKey::getByHandle('attribute_handle');
+if( !is_object($testAttribute3) ) {
+    CollectionAttributeKey::add($att, array('akHandle' =&gt; 'attribute_handle', 'akName' =&gt; t('Attribute Name'), 'akIsSearchable' =&gt; true, 'akCheckedByDefault' =&gt; true), $pkg);
+}
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___24">値が属性に設定されていることをテスト</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_test_that_a_value_is_set_in_an_attribute">Test That a Value Is Set in an Attribute</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  if ($c-&gt;getCollectionAttributeValue(attribute_hande)) {
+  Do Something Here;
+  }
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___25">ページ属性値を取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_a_page_attribute_value">Get a Page Attribute Value</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$c-&gt;getCollectionAttributeValue()
+
+ページのテキスト属性を表示する
+
+&lt;?php echo $c-&gt;getCollectionAttributeValue('attribute_hande') ?&gt;
+
+*いくつかのブロックでは、$cobj代用する必要があるかもしれません</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___26">ハンドルによって属性キーを取得する</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_an_attribute_key_by_handle">Get an Attribute Key by Handle</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$atKey = CollectionAttributeKey::getByHandle('handle');</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___27">ページ属性から画像を表示</h5>
+<div class="paragraph">
+<p>Display An Image From Page Attribute</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;img src="&lt;?php echo ($c-&gt;getAttribute('attribute_handle')-&gt;getVersion()-&gt;getRelativePath());?&gt;" width="120px" height="160px"&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___28">ページファイル/画像属性が設定されている場合、ディスプレイのダウンロードリンク</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_if_a_page_file_image_attribute_is_set_display_download_link">If a Page File/Image Attribute Is Set, Display Download Link</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  if($c-&gt;getAttribute('attribute_name')) {
+    echo '&lt;a href="' . $c-&gt;getAttribute('attribute_handle')-&gt;getVersion()-&gt;getRelativePath() .' "&gt;Download PDF&lt;/a&gt;';
+  }
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="__atributes">ファイル/イメージAtributesのファイル名を取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_a_file_image_atributes_file_name">Get a File/Image Atributes File Name</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+$c-&gt;getAttribute('attribute_handle')-&gt;getFileName()
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___29">すべてのページ属性を取得する</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_all_page_attributes">Get All Page Attributes</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>(in view.php)
+&lt;?php
+$atKeys = CollectionAttributeKey::getList();
+
+foreach($atKeys as $ak) {
+  echo  $ak-&gt;akName . '&lt;br/&gt;';
+}
+?&gt;
+
+(in controller.php)
+
+&lt;?php
+namespace
+use View;
+
+$atKeys = CollectionAttributeKey::getList();
+
+foreach($atKeys as $ak) {
+  pageAttributes[] =  $ak-&gt;akName;
+}
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___30">セット内のすべての属性を取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_get_all_attributes_in_a_set">Get all Attributes in a Set</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>(in view.php)
+
+$atSet = AttributeSet::getByHandle('attribute_set_handle');
+$atKeys = $atSet-&gt;getAttributeKeys();
+
+foreach($atKeys as $ak) {
+  echo $ak-&gt;akName;
+}
+
+(in controller.php)
+
+namespace
+use \Concrete\Core\Attribute\Set as AttributeSet;
+
+$atSet = AttributeSet::getByHandle('attribute_set_handle');
+$atKeys = $atSet-&gt;getAttributeKeys();
+
+foreach($atKeys as $ak) {
+  $setNmes[] = $ak-&gt;akName;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___31">表示/選択属性からオプションを取得</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_display_get_options_from_a_select_attribute">Display/Get Options From a Select Attribute</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  Loader::model('attribute/type');
+  Loader::model('attribute/categories/collection');
+
+  $ak = CollectionAttributeKey::getByHandle('attribute_handle');
+  $sa = new SelectAttributeTypeController(AttributeType::getByHandle('select'));
+  $sa-&gt;setAttributeKey($ak);
+  $values = $sa-&gt;getOptions();
+
+  foreach ($values as $v) {
+    echo $v-&gt;value;
+  }
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="___32">表示/選択]ページ属性から複数の値を取得する</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_display_get_multiple_values_from_a_select_page_attribute">Display/Get multiple Values From a Select Page Attribute</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+Loader::model("attribute/categories/collection");
+
+  $selectedOptions = $c-&gt;getCollectionAttributeValue('attribute_handle');
+  if (is_object($selectedOptions)) {
+    foreach ($selectedOptions as $opt) {
+	echo $opt;
+    }
+  }
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="__select">属性セットでselect属性を追加</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_add_select_attribute_with_attribute_set">Add select attribute with attribute set</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  // add select with attribute set page attributes
+
+  // Set attribute category
+  $akCat = AttributeKeyCategory::getByHandle('collection');
+  $akCat-&gt;setAllowAttributeSets(AttributeKeyCategory::ASET_ALLOW_SINGLE);
+  $akCatSet = $akCat-&gt;addSet('attribute_set_handle', t('Attribute Set Name'),$pkg);
+
+  $atType = AttributeType::getByHandle('select');
+
+  // test for existing attribute
+  $myAttribute = CollectionAttributeKey::getByHandle('attribute_handle');
+
+  // Add attribute
+  if( !is_object($myAttribute) ) {
+
+    CollectionAttributeKey::add($atType,
+    array('akHandle' =&gt; 'attribute_hande',
+    'akName' =&gt; t('Attribute Name'),
+    'akIsSearchable' =&gt; true,
+    'akIsSearchableIndexed' =&gt; true,
+    'akSelectAllowMultipleValues' =&gt; false,
+    'akSelectAllowOtherValues' =&gt; false,
+    'akSelectOptionDisplayOrder' =&gt; 'alpha_asc',  // alpha_asc or popularity_desc
+    ),$pkg)-&gt;setAttributeSet($akCatSet);
+
+    //Add option values
+    $myAttribute = CollectionAttributeKey::getByHandle('attribute_handle');
+    SelectAttributeTypeOption::add( $mMakerAttribute, 'Select Option One');
+    SelectAttributeTypeOption::add( $mMakerAttribute, 'Select Option Two');
+    SelectAttributeTypeOption::add( $mMakerAttribute, 'Select Option Three');
+ }
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="__nav">ページ属性に基づいてNAVを選択</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_select_nav_based_on_page_attributes">Select Nav Based On Page Attributes</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>(See language Switching)
+
+&lt;?php
+  if ($c-&gt;getCollectionAttributeValue('spanish_menus')) {
+    $block = Block::getByName('Spanish Menus');
+    if( is_object($block) ) $block-&gt;display();
+  } else {
+    $block = Block::getByName('English Menus');
+     if( is_object($block) ) $block-&gt;display();
+   }
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </section>
+
+  </article>
+
+
+
+
+            <footer class="footer">
+                <span class="footer__copyright">&copy; 2015. All rights reserved.</span>
+                <span class="footer__copyright"><a href="http://uno.daleanthony.com" title="link to page for Uno Ghost theme">Uno theme</a> by <a href="http://daleanthony.com" title="link to website for Dale-Anthony">Dale-Anthony</a></span>
+                <span class="footer__copyright">Proudly published with <a href="http://hubpress.io" title="link to Hubpress website">Hubpress</a></span>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script>
+
+    <script type="text/javascript" src="https://bluejam3.github.io/themes/uno/assets/js/main.js?v=1.0.0"></script>
+    
+
+</body>
+</html>
