@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>tesuto</title>
+    <meta name="description" content="" />
+    <link href="//fonts.googleapis.com/css?family=Noto+Sans:300,400,700" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="https://bluejam3.github.io/themes/Saga/assets/css/style.css?v=1.0.0" rel="stylesheet" type="text/css">
+    <link href="https://bluejam3.github.io/themes/Saga/assets/css/animate.min.css?v=1.0.0" rel="stylesheet" type="text/css">
+    <link href="https://bluejam3.github.io/themes/Saga/favicon.ico" rel="shortcut icon">
+    <link rel="canonical" href="https://bluejam3.github.io/2015/03/30/tesuto.html" />
+    
+    <meta property="og:site_name" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="tesuto" />
+    <meta property="og:description" content="Working With Users ##プログラムユーザ属性を追加 &amp;gt;Add a User Attribute Programmatically &amp;lt;?php   Loader::model(&#x27;user_attributes&#x27;);   //add boolean type user attribute   $boolt = AttributeType::getByHandle(&#x27;boolean&#x27;);   $attributeHandle=UserAttributeKey::getByHandle(&#x27;attribute_handle&#x27;);   if( !is_object($attributeHandle) )     UserAttributeKey::add($boolt, array(&#x27;akHandle&#x27; =&amp;gt;..." />
+    <meta property="og:url" content="https://bluejam3.github.io/2015/03/30/tesuto.html" />
+    <meta property="article:published_time" content="2015-03-29T15:00:00.000Z" />
+    <meta property="article:modified_time" content="2015-03-30T09:02:13.849Z" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="tesuto" />
+    <meta name="twitter:description" content="Working With Users ##プログラムユーザ属性を追加 &amp;gt;Add a User Attribute Programmatically &amp;lt;?php   Loader::model(&#x27;user_attributes&#x27;);   //add boolean type user attribute   $boolt = AttributeType::getByHandle(&#x27;boolean&#x27;);   $attributeHandle=UserAttributeKey::getByHandle(&#x27;attribute_handle&#x27;);   if( !is_object($attributeHandle) )     UserAttributeKey::add($boolt, array(&#x27;akHandle&#x27; =&amp;gt;..." />
+    <meta name="twitter:url" content="https://bluejam3.github.io/2015/03/30/tesuto.html" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "",
+    "author": {
+        "@type": "Person",
+        "name": "bluejam",
+        "image": "https://avatars.githubusercontent.com/u/9050733?v=3",
+        "url": "undefined/author/undefined",
+        "sameAs": ""
+    },
+    "headline": "tesuto",
+    "url": "https://bluejam3.github.io/2015/03/30/tesuto.html",
+    "datePublished": "2015-03-29T15:00:00.000Z",
+    "dateModified": "2015-03-30T09:02:13.849Z",
+    "description": "Working With Users ##プログラムユーザ属性を追加 &amp;gt;Add a User Attribute Programmatically &amp;lt;?php   Loader::model(&#x27;user_attributes&#x27;);   //add boolean type user attribute   $boolt = AttributeType::getByHandle(&#x27;boolean&#x27;);   $attributeHandle=UserAttributeKey::getByHandle(&#x27;attribute_handle&#x27;);   if( !is_object($attributeHandle) )     UserAttributeKey::add($boolt, array(&#x27;akHandle&#x27; =&amp;gt;..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost ?" />
+    <link rel="alternate" type="application/rss+xml" title="" href="https://bluejam3.github.io/rss" />
+</head>
+<body class="post-template">
+    <header id="header" class="animated fadeIn">
+    <div class="header-background">
+    <section class="blog-content">
+        <a id="site-url" class="blog-title" href="https://bluejam3.github.io"></a>
+        <span class="blog-description"></span>
+        <nav class="links fadeIn animated">
+            <ul>
+                <!-- <li class="rss"><a title="RSS Feed" href="/rss/"><i class="fa fa-fw fa-rss-square"></i></a></li> -->
+        
+            </ul>
+        </nav>
+    </section>
+    <section class="header-content">
+        <h1 class="post-title animated fadeInUp">tesuto</h1>
+        <span class="post-data"><span class="date animated fadeInUp"><i class="fa fa-clock-o"></i> <time class="timesince date" data-timesince="1427641200" datetime="2015-03-30T00:00" title="30 March 2015">18 hours ago</time></span>
+            
+            <span class="author animated fadeInUp"><i class="fa fa-user"></i> <a href="">bluejam</a></span></span>
+    </section>
+    </div>
+</header>
+<main id="main" class="content">
+    <article itemtype="http://schema.org/BlogPosting" class="animated fadeIn content post post">
+        <section class="post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Working With Users</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#プログラムユーザ属性を追加
+&gt;Add a User Attribute Programmatically</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  Loader::model('user_attributes');
+  //add boolean type user attribute
+  $boolt = AttributeType::getByHandle('boolean');
+  $attributeHandle=UserAttributeKey::getByHandle('attribute_handle');
+
+  if( !is_object($attributeHandle) )
+    UserAttributeKey::add($boolt, array('akHandle' =&gt; 'atribute_handle', 'akName' =&gt; t('Attribute name'), 'akIsSearchable' =&gt; false, 'uakProfileEdit' =&gt; false, 'uakRegisterEdit' =&gt; false, 'akCheckedByDefault' =&gt; false));
+}
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#プログラムユーザー属性を削除
+&gt;Delete User Attribute Programmatically</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  Loader::model('user_attributes');
+  $attributeHandle = UserAttributeKey::getByHandle('atribute_handle');
+   if( is_object($attributeHandle) )
+     $attributeHandle-&gt;delete();
+}
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#個人記録されたInのユーザー属性を取得する
+Get a User Attribute for Person Logged In</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $u = new User();
+  if($u-&gt;isLoggedIn()) {
+    $ui = UserInfo::getByID($u-&gt;getUserID());
+    echo $ui-&gt;getAttribute('attribute_name');
+}
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#個人記録された中のユーザー属性を設定
+Set a User Attribute for Person Logged In</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $u = new user();
+  $ui = UserInfo::getByID($u-&gt;getUserID());
+  $ui-&gt;setAttribute('attributenName', 'value');
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#ユーザー属性を削除
+Delete a User Attribute</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  Loader::model('user_attributes');
+  $attributeKey = UserAttributeKey::getByHandle('user_attribute_name');
+  if( is_object($attributeKey) )
+    $attributeKey-&gt;delete();
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#表示/ユーザ選択]属性からオプションを取得
+Display/Get Options From a User Select Attribute</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  Loader::model('attribute/type');
+  Loader::model('attribute/categories/user');
+
+  $ak = UserAttributeKey::getByHandle('project_name');
+  $sa = new SelectAttributeTypeController(AttributeType::getByHandle('select'));
+  $sa-&gt;setAttributeKey($ak);
+  $values = $sa-&gt;getOptions();
+
+  foreach ($values as $v) {
+    echo $v-&gt;value;
+  }
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#グループにユーザーを追加
+Add a User To a Group</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $u = new User();
+  $u-&gt;getByUserID($uID);
+  $groupName = Group::getByName('Name_Of_Your_Group');
+  $u-&gt;enterGroup($groupName);
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#すべてのユーザーグループ名を取得
+Get All User Group Names</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+Loader::model('search/group');
+
+$gl = new GroupSearch();
+$gResults = $gl-&gt;getPage();
+
+foreach ($gResults as $g) {
+  echo  $g['gName'];
+}
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#ユーザー名を表示
+Display a Users Name</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $u = new User();
+  echo $u-&gt;getUserName();
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#ログインした場合の背景位置を調整
+If Logged in Adjust Background Position</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code> &lt;?php
+      $u = new User();
+
+      if ($u-&gt;isLoggedIn()) { ?&gt;
+        &lt;style type="text/css"&gt;
+        body { background-position: 0px 49px; }
+        &lt;/style&gt;
+    &lt;?php } ?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#ユーザーが、ログインしている場合
+If a User is Logged In Do Something</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $u = new User();
+  if($u-&gt;isLoggedIn()) {
+    echo 'Hello '.$u-&gt;getUserName();
+  }
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#スーパーユーザ及び管理者グループがログインしている場合
+If Logged in User is Admin Do Something</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $u = new user();
+  $g = Group::getByName('Administrators');
+
+  if ($u-&gt;inGroup($g)||$u-&gt;isSuperUser()) {
+    //do something here
+  }
+?&gt;
+ ```
+##Working With Files and Sets
+
+&gt; ####ファイルへのパスを取得する
+&gt; Get Path to File</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&lt;?php
+  $f = File::getByID(FILE_ID);
+  $fv = $f&#8594;getApprovedVersion();
+  $path = $fv&#8594;getRelativePath();
+?&gt;
+]</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt; ####セット名ファイルゲット
+&gt; Get File Set Names</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(in view.php)
+&lt;?php
+  $fileSets = FileSet::getMySets();
+  foreach ($fileSets as $fs) {
+    echo $fs&#8594;getFileSetName();
+  }
+?&gt;</p>
+</div>
+<div class="paragraph">
+<p>$fs&#8594;getFileSetID()
+$fs&#8594;getFileSetName()
+$fs&#8594;getFileSetType()</p>
+</div>
+<div class="paragraph">
+<p>(in controller.php)</p>
+</div>
+<div class="paragraph">
+<p>&lt;?php
+namespace
+use FileSet;
+use FileList;</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>  $fileSets = FileSet::getMySets();
+  foreach ($fileSets as $fs) {
+   $filesets('id' =&gt; $fs-&gt;getFileSetID(), 'name' =&gt; $fs-&gt;getFileSetName());
+ }
+?&gt;</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt; ####ファイルセットを追加
+&gt; Add a File Set</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&lt;?php
+  $fs = FileSet::createAndGetSet('FILESET_NAME', FileSet::TYPE_PUBLIC, $uID = false);
+?&gt;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt; #### ファイルの属性値を取得
+&gt; Get File Attribute Value</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&lt;?php
+  $f = File::getByID(FILE ID NUMBER);
+  echo $f&#8594;getAttribute('Attrubute_name');
+?&gt;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt; ####ファイル属性を追加
+&gt; Add a File Attribute</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&lt;?php
+  // add file attribute programmatically (text)
+  Loader::model('file_attributes');
+  $textt = AttributeType::getByHandle('text');
+  $attribute=FileAttributeKey::getByHandle('attribute_handle');</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>if( !is_object($attribute) )
+  FileAttributeKey::add($textt, array('akHandle' =&gt; 'attribut_handle', 'akName' =&gt; t('Atribute Name')));</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>// when uploading with a form
+function action_file_upload()    {
+  Loader::library("file/importer");
+  $fi = new FileImporter();
+  $newFile = $fi-&gt;import($_FILES['fileName']['tmp_name'],
+  $_FILES['fileName']['name']);</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>   // add attriubute
+   if($newFile instanceof FileVersion) {
+     $f = $newFile-&gt;getFile();
+     $fv = $f-&gt;getApprovedVersion();
+     $fv-&gt;setAttribute('ATTRIBUTE_NAME', 'VALUE');
+   }
+}
+?&gt;</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt; ####表示/ファイルセットからファイル情報を見る
+&gt; Display / Get File Info from File Sets</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(in view.php)
+&lt;?php
+  $fs = FileSet::getByName('Your File Set');
+  $fl = new FileList();
+  $fl&#8594;filterBySet($fs);
+  $fl&#8594;sortBy('fsDisplayOrder', 'asc');
+  $files = $fl&#8594;get();</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>  foreach($files as $f) {
+    echo $f-&gt;getFileName();
+    echo $f-&gt;getTitle();
+    echo $f-&gt;getAttribute("width");
+    echo $f-&gt;getDownloadURL();
+    echo $f-&gt;getRelativePath();
+    echo $f-&gt;getDescription();
+    echo $f-&gt;getAttribute('attribute_name');
+  }
+?&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(in controller.php)
+&lt;?php
+namespace
+use FileSet;
+use FileList;</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>  $fs = FileSet::getByName('Your File Set');
+  $fl = new FileList();
+  $fl-&gt;filterBySet($fs);
+  $fl-&gt;sortBy('fsDisplayOrder', 'asc');
+  $files = $fl-&gt;get();
+?&gt;</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt; ####ファイルを追加
+&gt;Add a File</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&lt;?php
+    Loader::library("file/importer");
+    $fi = new FileImporter();
+    $newFile = $fi&#8594;import($pathToFile, $nameOfFile, $fileObject);
+  }
+?&gt;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt; ####フォームからファイルの追加
+&gt; Add a File From a Form</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&lt;?php
+  // function in controller
+  function action_file_upload()	{
+    Loader::library("file/importer");
+    $fi = new FileImporter();
+    $newFile = $fi&#8594;import($_FILES['fileName']['tmp_name'],
+    $_FILES['fileName']['name']);
+  }
+?&gt;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt; ####ファイルセットにファイルを追加
+&gt; Add a File to a file Set</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&lt;?php
+  // when uploading with a form
+  function action_file_upload()	{
+    Loader::library("file/importer");
+    $fi = new FileImporter();
+    $newFile = $fi&#8594;import($_FILES['fileName']['tmp_name'],
+    $_FILES['fileName']['name']);</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>    // add file to file set
+    Loader::model('file_set');
+    $fs = FileSet::createAndGetSet('FILE_SET_NAME', FileSet::TYPE_PUBLIC,
+    $uID = false);
+    $fsf = $fs-&gt;addFileToSet($newFile);
+  }
+?&gt;</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>##Working With Page Lists
+&gt; ####ページリストの開始
+&gt; Initiating a Page List</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(in view.php)</p>
+</div>
+<div class="paragraph">
+<p>&lt;?php
+  $pl = Core::Make('PageList');</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$pl = new PageList();</pre>
+</div>
+</div>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Filtering and Sorting Options &#8230;&#8203;</p>
+<div class="literalblock">
+<div class="content">
+<pre>   // Get the page List Results
+  $pages = $pl-&gt;get() Get all pages that match filter/sort criteria.
+?&gt;</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>(in controller.php)</p>
+</div>
+<div class="paragraph">
+<p>&lt;?php
+namespace
+use Concrete\Core\Page\PageList;</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$pl = new PageList();</pre>
+</div>
+</div>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Filtering and Sorting Options &#8230;&#8203;</p>
+<div class="literalblock">
+<div class="content">
+<pre>   // Get the page List Results
+  $pages = $pl-&gt;get() Get all pages that match filter/sort criteria.
+?&gt;</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code></code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#ページリストフィルタ/並べ替え
+Page List Filters / Sorting</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+    // Available Filters
+    $pl-&gt;ignorePermissions(); // Don't check the permissions of the logged-in user.
+    $pl-&gt;ignoreAliases(); // Ignore aliased pages.
+    $pl-&gt;includeSystemPages(); // Include system pages
+    $pl-&gt;displayUnapprovedPages(); // Include pages that have not been approved.
+    $pl-&gt;filterByKeywords($keywords); // Filters files by keywords.
+    $pl-&gt;filterByName($name, $exact = false); // Filter page name.
+    $pl-&gt;filterByPath($path, $includeAllChildren = true); // Filters pages by path, children true/false
+    $pl-&gt;filterByParentID($cParentID); //Filters by the parent ID.
+    $pl-&gt;filterByCollectionTypeID($ctID); //Displays pages of a certain page type.
+    $pl-&gt;filterByUserID($userID); //Displays pages owned by a particular user ID.
+    $pl-&gt;filterByIsApproved($isApproved); //Only display approved pages.
+    $pl-&gt;filterByIsAlias($ia); //Filters by whether an item is an alias or not.
+    $pl-&gt;filterByCollectionTypeHandle($ctHandle); //Filters by page type handles. $ctHandle can be array of page type handles.
+    $pl-&gt;filterByDateAdded($date, $comparison = '='); //Filters by date the page was added. $comparison can be any MySQL comparison operator.
+    $pl-&gt;filterByPublicDate($date, $comparison = '='); //Filters by public date. $comparison can be any MySQL comparison operator.
+    $pl-&gt;filterByDateLastModified($date, $comparison = '='); //Filters by date the page was last modified. $comparison can be any MySQL comparison operator.
+    $pl-&gt;filterByNumberOfChildren($number, $comparison = '='); //Filters by number of page children. $comparison can be any MySQL comparison operator.
+    $pl-&gt;filterByAttribute($attributeKeyHandle, $value, $comparison); //Filters by attribute.
+    $pl-&gt;filter($column, $value, $comparison); //Filter by MySql "WHERE" clause
+
+    // Sorting Options
+    $pl-&gt;sortByRelevance(); //Orders by index score descending. Only available when searching by keywords.
+    $pl-&gt;sortByDisplayOrder(); //Orders by sitemap display order ascending.
+    $pl-&gt;sortByDisplayOrderDescending(); // Orders by sitemap display order descending.
+    $pl-&gt;sortByPublicDate(); //Orders by public date ascending.
+    $pl-&gt;sortByPublicDateDescending(); //Orders by public date descending.
+    $pl-&gt;sortByName(); //Orders by page name ascending.
+    $pl-&gt;sortByNameDescending(); // Order by name descending
+    $pl-&gt;sortBy('ATTRIBUTE_HANDLE'); // Order by a page attribute
+  ?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#ページ一覧はコレクション型ハンドルに基づくゲット
+Get Page List based on Collection Type Handle</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $pl = new PageList();
+  $pl-&gt;filterByCollectionTypeHandle('COLLECTION_HANDLE');
+  $pl-&gt;sortByDisplayOrder('alpha_asc'); // Sort alphebetically
+
+  $pages = $pl-&gt;getPage();
+
+  // Display Page Name and Description
+  foreach ($pages as $page){
+    echo $page-&gt;getCollectionName();
+    echo $page-&gt;getCollectionDescription();
+  }
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#テーマに埋め込むページリストブロック
+Embed Page List Block in Theme</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $bt = BlockType::getByHandle('page_list');
+
+  //Set Options
+  $bt-&gt;controller-&gt;orderBy = 'display_asc'; // 'display_asc', 'chrono_desc', 'chrono_asc', 'alpha_asc', 'alpha_desc'
+  $bt-&gt;controller-&gt;ctID = ''; // Filter by Collection Page Type ID
+  $bt-&gt;controller-&gt;displayFeaturedOnly = 'false'; // If Featured Page attribute 'true', 'false'
+  $bt-&gt;controller-&gt;displayAliases = 'false'; // Display aliase pages 'true', 'false'
+  $bt-&gt;controller-&gt;paginate = 'true'; // 'true', 'false'
+  $bt-&gt;controller-&gt;cParentID = '6149'; // Display pages beneath this page ID
+  $bt-&gt;controller-&gt;includeAllDescendents = 'true'; // 'true', 'false'
+  $bt-&gt;controller-&gt;orderBy = 'display_asc'; // 'display_asc', 'chrono_desc', 'chrono_asc', 'alpha_asc', 'alpha_desc'
+  $bt-&gt;controller-&gt;showrss = 'false'; // Display RSS feed 'true', 'false'
+  $bt-&gt;controller-&gt;truncateSummaries = 'true'; // 'true', 'false'
+  $bt-&gt;controller-&gt;truncateChars = '128'; // Truncate length if summaries 'true'
+  $bt-&gt;controller-&gt;paginate = 'true'; // 'true', 'false'
+
+  // Render the block
+  $bt-&gt;render('view'); // for template 'templates/template_name'
+?&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>##再ソートページリストブロック$ページアレイ
+&gt;Re-Sort Page List Block $pages Array</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  // Re-sort in view.php by an end date page attribute
+  usort($pages, create_function('$a, $b', 'return $a-&gt;getAttribute("end_date") &gt; $b-&gt;getAttribute("end_date");'));
+?&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><mark>Controllers
+&gt; </mark>##単一ページコントローラ
+&gt; Single Page Controllers</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Create single page file: applications/single_pages/test_page.php
+
+Create a controller file: applications/controllers/test_page.php
+
+Namespace and class for controller
+
+&lt;?php
+namespace Application\Controller\SinglePage;
+use PageController;
+
+class TestPage extends PageController
+{
+
+    // Add functions
+    public function view()
+    {
+        // Whatever code you need for functions
+        echo 'Hello World';
+    }
+
+}
+?&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_database">Database</h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#データベースからデータをフェッチ
+Fetch Data From Database</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $db = Loader::db();
+
+  $sql = "SELECT * FROM [table] WHERE [column1] = ? AND [column2] = ?";
+  $vals = array('[value1]', '[value2]');
+  $r = $db-&gt;Execute($sql, $vals);
+  $row = $r-&gt;FetchRow();
+
+  echo $row[column name];
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#アップデートデータベース
+Update Database</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $db = Loader::db();
+
+  $sql = "UPDATE [table] SET [column] = ? WHERE bID = $this-&gt;bID";
+  $vals = array('[value]');
+  $update = $db-&gt;Execute($sql, $vals);
+?&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><mark>Helpers
+&gt; </mark>##日付/時刻ヘルパー
+&gt; Date/Time Helper</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>ロード日付/時刻ヘルパー
+Load Date/Time Helper</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+$date = Core::make('helper/date');
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#ページ日付/時刻属性（END_DATE）で今日の日付を比較して、何かをする
+Compare Today&#8217;s Date With a Pages Date/Time Attribute (end_date) And Do Something</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Using Date Helper to format ($mask=) display of date and time.
+
+&lt;?php
+
+  if($date-&gt;getSystemDateTime($c-&gt;getCollectionAttributeValue('end_date'), $mask = 'd-m-Y G:i') &gt; $date-&gt;getLocalDateTime('now',$mask = 'd-m-Y G:i')) {
+    echo 'End date is greater than today';
+  }
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#DD-MM-YYYY午後12時フォーマットでの表示日付/時刻。
+Display Date/Time In dd-mm-yyyy 00:00 Format.</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $date = Loader::helper("date");  echo $date-&gt;getLocalDateTime('now',$mask = 'd-m-Y G:i')
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#MM / dd / yy形式での表示ページ属性」END_DATE」
+Display Page Attribute "end_date" In mm/dd/yy Format</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  echo $date-&gt;getSystemDateTime($c-&gt;getCollectionAttributeValue('end_date'), $mask = 'm/d/y')
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#日付のページを取得最後に編集しました
+Get Date The Page Was Last Edited</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  foreach($c-&gt;getBlocks('Main') as $b) {
+    $bDate[$i] = $b-&gt;getBlockDateLastModified();
+    $i ++;
+  }
+
+  rsort( $bDate );
+
+  echo $date-&gt;getLocalDateTime($bDate[0],$mask = 'm-d-Y g:i:s');
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#ページ属性」END_DATEが現在時刻よりも大きい場合には、何かをする
+If Page Attribute "end_date Is Greater Than Current Time, Do Something.</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  if($date-&gt;getSystemDateTime($c-&gt;getCollectionAttributeValue('end_date'), $mask = 'd-m-Y G:i') &gt; $date-&gt;getLocalDateTime('now',$mask = 'd-m-Y G:i')) {
+
+    [do something here]
+
+  }
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#マスクのPHPの日付書式
+PHP Date Formatting For Mask</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>a 'am' or 'pm'
+A 'AM' or 'PM'
+B Swatch Internet time
+d day of the month, 2 digits with leading zeros; i.e. '01' to '31'
+D day of the week, textual, 3 letters; i.e. 'Fri'
+F month, textual, long; i.e. 'January'
+g hour, 12-hour format without leading zeros; i.e. '1' to '12'
+G hour, 24-hour format without leading zeros; i.e. '0' to '23'
+h hour, 12-hour format; i.e. '01' to '12'
+H hour, 24-hour format; i.e. '00' to '23'
+i minutes; i.e. '00' to '59'
+I (capital i) '1' if Daylight Savings Time, '0' otherwise.
+j day of the month without leading zeros; i.e. '1' to '31'
+l (lowercase 'L') day of the week, textual, long; i.e. 'Friday'
+L boolean for whether it is a leap year; i.e. '0' or '1'
+m month; i.e. '01' to '12'
+M month, textual, 3 letters; i.e. 'Jan'
+n month without leading zeros; i.e. '1' to '12'
+r RFC 822 formatted date; i.e. 'Thu, 21 Dec 2000 16:01:07 +0200' (added in PHP 4.0.4)
+s seconds; i.e. '00' to '59'
+S English ordinal suffix, textual, 2 characters; i.e. 'th', 'nd'
+t number of days in the given month; i.e. '28' to '31'
+T Timezone setting of this machine; i.e. 'MDT'
+U seconds since the epoch
+w day of the week, numeric, i.e. '0' (Sunday) to '6' (Saturday)
+Y year, 4 digits; i.e. '1999'
+y year, 2 digits; i.e. '99'
+z day of the year; i.e. '0' to '365'
+Z timezone offset in seconds (i.e. '-43200' to '43200'). The offset for timezones west of UTC is always negative, and for those east of UTC is always positive.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>##Image Helper</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#イメージのロードヘルパー
+Load Image Helper</p>
+</div>
+</blockquote>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(depricated)</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $imageHelper = Core::make('helper/image');
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#ページ属性からの出力サムネイル
+Output Thumbnail from Page Attribute</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>If image exists in Image/File Attribute "product_image", display the image scaled to 100px.
+
+&lt;?php
+  if($c-&gt;getAttribute('product_image')) {
+    $imageHelper-&gt;outputThumbnail($c-&gt;getAttribute('product_image'),100 ,100);
+  }
+?&gt;</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#画像のヘルパーでサムネイル情報を取得
+Get Thumbnail Info with Image Helper</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $file = File::getByID(id_number);
+  $img = $imageHelper-&gt;getThumbnail($file, 100, 100);
+?&gt;
+
+    &lt;img src="&lt;?php echo $img-&gt;src; ?&gt;" width="&lt;?php echo $img-&gt;width; ?&gt;" height="&lt;?php echo $img-&gt;height; ?&gt;"&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>##Multilingual Helper</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#多言語ヘルパーのロード</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Load Multilingual Helper</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+  $lh = Loader::helper('section', 'multilingual');
+&lt;?</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#二つの言語コードを返します</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Return Two Language Code</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&lt;?php
+    $lh = Loader::helper('section', 'multilingual');
+    echo $lh-&gt;getLanguage();
+  ?&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>###Site.php</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#共通設定
+Common Settings</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Set advanced permissions on
+  define('PERMISSIONS_MODEL', 'advanced');
+
+Use APC Caching (you need APC installed)
+  define('CACHE_LIBRARY', 'apc');
+
+Disable Zend Cache Cleaning (may improve performance)
+  define('CACHE_FRONTEND_OPTIONS',
+  serialize(array('automatic_cleaning_factor' =&gt; 0)));
+
+Set time to 24 hour format
+  define('DATE_FORM_HELPER_FORMAT_HOUR', '24');
+
+Date Formatting
+  define('DATE_APP_GENERIC_MDYT_FULL', 'F d, Y \a\t g:i A');
+  define('DATE_APP_GENERIC_MDYT', 'n/j/Y \a\t g:i A');
+  define('DATE_APP_GENERIC_MDY', 'n/j/Y');
+  define('DATE_APP_GENERIC_MDY_FULL', 'F d, Y');
+
+Change minimum user name length from default value 3
+  define('USER_USERNAME_MINIMUM', 3);
+
+Change maximum username length from default value 64
+  define('USER_USERNAME_MAXIMUM', 64);
+
+Change minimum password length from default value 3
+  define('USER_PASSWORD_MINIMUM', 5);
+
+Change maximum password length from default value 64
+  define('USER_PASSWORD_MAXIMUM', 64);
+
+Change session time from default of 2 hours
+  define('SESSION_MAX_LIFETIME', 7200); // 2 hours
+
+Set registration email notification address
+  define('EMAIL_ADDRESS_REGISTER_NOTIFICATION',
+  'example@domain.com');
+
+Set registration email notification from address
+  define('EMAIL_ADDRESS_REGISTER_NOTIFICATION_FROM',
+  'example@domain.com');</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><mark>#</mark>#ホワイトラベルの設定
+&gt;White Label Configuration</p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Disable concrete5 marketplace integration.
+define('ENABLE_MARKETPLACE_SUPPORT', false);
+
+Disable help searches in the intelligent search.
+define('ENABLE_INTELLIGENT_SEARCH_HELP', false);
+
+Disable marketplace add-ons appear in intelligent
+search results.
+define('ENABLE_INTELLIGENT_SEARCH_MARKETPLACE', false);
+
+Disable newsflow
+define('ENABLE_NEWSFLOW_OVERLAY', false);
+
+Path to the logo image. This can also be a full URL.
+This file should be 49x49 pixels.
+define('WHITE_LABEL_LOGO_SRC', 'PATH TO FILE');
+
+Alt text for the logo
+define('WHITE_LABEL_APP_NAME', 'TEXT');
+
+Disable Layouts.
+define('ENABLE_AREA_LAYOUTS', false);
+
+Disable Custom Design for blocks or areas.
+define('ENABLE_CUSTOM_DESIGN', false);
+
+Disable Newsflow connect to concrete5.org to retrieve
+latest updates.
+define('ENABLE_APP_NEWS', false);
+
+Set to a valid image (either local or a remote URL), or none.
+define('WHITE_LABEL_DASHBOARD_BACKGROUND_SRC', 'none');
+
+Web address for today's Image
+define('WHITE_LABEL_DASHBOARD_BACKGROUND_FEED', false);</code></pre>
+</div>
+</div>
+</div>
+</div>
+        </section>
+
+    </article>
+
+</main>
+    <footer class="animated fadeIn" id="footer">
+        <section class="colophon">
+          <section class="copyright">Copyright &copy; <span itemprop="copyrightHolder"></span>. <span rel="license">All Rights Reserved</span>.</section>
+          <section class="poweredby">Published with <a class="icon-ghost" href="http://hubpress.io">HubPress</a></section>
+        </section>
+        <section class="bottom">
+          <section class="attribution">
+            <a href="http://github.com/Reedyn/Saga">Built with <i class="fa fa-heart"></i> and Free and Open-Source Software</a>.
+          </section>
+        </section>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script>
+    <script src="https://bluejam3.github.io/themes/Saga/assets/js/scripts.js?v=1.0.0"></script>
+    
+</body>
+</html>
