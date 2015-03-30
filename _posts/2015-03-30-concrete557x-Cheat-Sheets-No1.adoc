@@ -422,7 +422,7 @@ $atKey = CollectionAttributeKey::getByHandle('handle');
 <img src="<?php echo ($c->getAttribute('attribute_handle')->getVersion()->getRelativePath());?>" width="120px" height="160px">
 ----
 
-==== *ページファイル/画像属性が設定されている場合、ディスプレイのダウンロードリンク*　　
+==== *ページファイル/画像属性が設定されている場合、+ディスプレイのダウンロードリンク*　　
 ===== If a Page File/Image Attribute Is Set, Display Download Link
 [source,perl]
 ----
